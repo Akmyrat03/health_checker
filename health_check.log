@@ -1,0 +1,297 @@
+2025/02/16 16:54:27 Server https://bad-server.com is unreachable: Get "https://bad-server.com": dial tcp: lookup bad-server.com on 127.0.0.53:53: no such host
+2025/02/16 16:54:37 Server https://bad-server.com is unreachable: Get "https://bad-server.com": dial tcp: lookup bad-server.com on 127.0.0.53:53: no such host
+2025/02/16 16:54:47 Server https://bad-server.com is unreachable: Get "https://bad-server.com": dial tcp: lookup bad-server.com on 127.0.0.53:53: no such host
+2025/02/16 16:55:02 Server https://bad-server.com is unreachable: Get "https://bad-server.com": dial tcp: lookup bad-server.com on 127.0.0.53:53: no such host
+2025/02/16 16:55:07 Server https://bad-server.com is unreachable: Get "https://bad-server.com": dial tcp: lookup bad-server.com on 127.0.0.53:53: no such host
+2025/02/16 16:55:17 Server https://bad-server.com is unreachable: Get "https://bad-server.com": dial tcp: lookup bad-server.com on 127.0.0.53:53: no such host
+2025/02/16 16:55:27 Server https://bad-server.com is unreachable: Get "https://bad-server.com": dial tcp: lookup bad-server.com on 127.0.0.53:53: no such host
+2025/02/16 16:55:37 Server https://bad-server.com is unreachable: Get "https://bad-server.com": dial tcp: lookup bad-server.com on 127.0.0.53:53: no such host
+2025/02/16 16:55:47 Server https://bad-server.com is unreachable: Get "https://bad-server.com": dial tcp: lookup bad-server.com on 127.0.0.53:53: no such host
+2025/02/16 16:55:57 Server https://bad-server.com is unreachable: Get "https://bad-server.com": dial tcp: lookup bad-server.com on 127.0.0.53:53: no such host
+2025/02/16 16:56:07 Server https://bad-server.com is unreachable: Get "https://bad-server.com": dial tcp: lookup bad-server.com on 127.0.0.53:53: no such host
+2025/02/16 16:56:17 Server https://bad-server.com is unreachable: Get "https://bad-server.com": dial tcp: lookup bad-server.com on 127.0.0.53:53: no such host
+2025/02/16 16:56:27 Server https://bad-server.com is unreachable: Get "https://bad-server.com": dial tcp: lookup bad-server.com on 127.0.0.53:53: no such host
+2025/02/16 16:56:37 Server https://bad-server.com is unreachable: Get "https://bad-server.com": dial tcp: lookup bad-server.com on 127.0.0.53:53: no such host
+2025/02/16 16:56:47 Server https://bad-server.com is unreachable: Get "https://bad-server.com": dial tcp: lookup bad-server.com on 127.0.0.53:53: no such host
+2025/02/16 16:56:57 Server https://bad-server.com is unreachable: Get "https://bad-server.com": dial tcp: lookup bad-server.com on 127.0.0.53:53: no such host
+2025/02/16 16:57:07 Server https://bad-server.com is unreachable: Get "https://bad-server.com": dial tcp: lookup bad-server.com on 127.0.0.53:53: no such host
+2025/02/16 16:57:17 Server https://bad-server.com is unreachable: Get "https://bad-server.com": dial tcp: lookup bad-server.com on 127.0.0.53:53: no such host
+2025/02/16 16:57:27 Server https://bad-server.com is unreachable: Get "https://bad-server.com": dial tcp: lookup bad-server.com on 127.0.0.53:53: no such host
+2025/02/16 16:57:37 Server https://bad-server.com is unreachable: Get "https://bad-server.com": dial tcp: lookup bad-server.com on 127.0.0.53:53: no such host
+2025/02/16 16:57:47 Server https://bad-server.com is unreachable: Get "https://bad-server.com": dial tcp: lookup bad-server.com on 127.0.0.53:53: no such host
+2025/02/16 16:57:57 Server https://bad-server.com is unreachable: Get "https://bad-server.com": dial tcp: lookup bad-server.com on 127.0.0.53:53: no such host
+2025/02/16 16:58:07 Server https://bad-server.com is unreachable: Get "https://bad-server.com": dial tcp: lookup bad-server.com on 127.0.0.53:53: no such host
+2025/02/16 16:58:17 Server https://bad-server.com is unreachable: Get "https://bad-server.com": dial tcp: lookup bad-server.com on 127.0.0.53:53: no such host
+2025/02/16 16:58:27 Server https://bad-server.com is unreachable: Get "https://bad-server.com": dial tcp: lookup bad-server.com on 127.0.0.53:53: no such host
+2025/02/16 16:58:37 Server https://bad-server.com is unreachable: Get "https://bad-server.com": dial tcp: lookup bad-server.com on 127.0.0.53:53: no such host
+2025/02/16 16:58:47 Server https://bad-server.com is unreachable: Get "https://bad-server.com": dial tcp: lookup bad-server.com on 127.0.0.53:53: no such host
+2025/02/16 16:58:57 Server https://bad-server.com is unreachable: Get "https://bad-server.com": dial tcp: lookup bad-server.com on 127.0.0.53:53: no such host
+2025/02/16 16:59:07 Server https://bad-server.com is unreachable: Get "https://bad-server.com": dial tcp: lookup bad-server.com on 127.0.0.53:53: no such host
+2025/02/16 16:59:17 Server https://bad-server.com is unreachable: Get "https://bad-server.com": dial tcp: lookup bad-server.com on 127.0.0.53:53: no such host
+2025/02/16 16:59:27 Server https://bad-server.com is unreachable: Get "https://bad-server.com": dial tcp: lookup bad-server.com on 127.0.0.53:53: no such host
+2025/02/16 16:59:37 Server https://bad-server.com is unreachable: Get "https://bad-server.com": dial tcp: lookup bad-server.com on 127.0.0.53:53: no such host
+2025/02/16 16:59:47 Server https://bad-server.com is unreachable: Get "https://bad-server.com": dial tcp: lookup bad-server.com on 127.0.0.53:53: no such host
+2025/02/16 16:59:57 Server https://bad-server.com is unreachable: Get "https://bad-server.com": dial tcp: lookup bad-server.com on 127.0.0.53:53: no such host
+2025/02/16 17:00:07 Server https://bad-server.com is unreachable: Get "https://bad-server.com": dial tcp: lookup bad-server.com on 127.0.0.53:53: no such host
+2025/02/16 17:00:17 Server https://bad-server.com is unreachable: Get "https://bad-server.com": dial tcp: lookup bad-server.com on 127.0.0.53:53: no such host
+2025/02/16 17:00:27 Server https://bad-server.com is unreachable: Get "https://bad-server.com": dial tcp: lookup bad-server.com on 127.0.0.53:53: no such host
+2025/02/16 17:00:37 Server https://bad-server.com is unreachable: Get "https://bad-server.com": dial tcp: lookup bad-server.com on 127.0.0.53:53: no such host
+2025/02/16 17:00:47 Server https://bad-server.com is unreachable: Get "https://bad-server.com": dial tcp: lookup bad-server.com on 127.0.0.53:53: no such host
+2025/02/16 17:00:57 Server https://bad-server.com is unreachable: Get "https://bad-server.com": dial tcp: lookup bad-server.com on 127.0.0.53:53: no such host
+2025/02/16 17:01:07 Server https://bad-server.com is unreachable: Get "https://bad-server.com": dial tcp: lookup bad-server.com on 127.0.0.53:53: no such host
+2025/02/16 17:01:17 Server https://bad-server.com is unreachable: Get "https://bad-server.com": dial tcp: lookup bad-server.com on 127.0.0.53:53: no such host
+2025/02/16 17:01:27 Server https://bad-server.com is unreachable: Get "https://bad-server.com": dial tcp: lookup bad-server.com on 127.0.0.53:53: no such host
+2025/02/16 17:01:37 Server https://bad-server.com is unreachable: Get "https://bad-server.com": dial tcp: lookup bad-server.com on 127.0.0.53:53: no such host
+2025/02/16 17:01:47 Server https://bad-server.com is unreachable: Get "https://bad-server.com": dial tcp: lookup bad-server.com on 127.0.0.53:53: no such host
+2025/02/16 17:01:57 Server https://bad-server.com is unreachable: Get "https://bad-server.com": dial tcp: lookup bad-server.com on 127.0.0.53:53: no such host
+2025/02/16 17:02:07 Server https://bad-server.com is unreachable: Get "https://bad-server.com": dial tcp: lookup bad-server.com on 127.0.0.53:53: no such host
+2025/02/16 17:02:17 Server https://bad-server.com is unreachable: Get "https://bad-server.com": dial tcp: lookup bad-server.com on 127.0.0.53:53: no such host
+2025/02/16 17:02:27 Server https://bad-server.com is unreachable: Get "https://bad-server.com": dial tcp: lookup bad-server.com on 127.0.0.53:53: no such host
+2025/02/16 17:02:37 Server https://bad-server.com is unreachable: Get "https://bad-server.com": dial tcp: lookup bad-server.com on 127.0.0.53:53: no such host
+2025/02/16 17:02:47 Server https://bad-server.com is unreachable: Get "https://bad-server.com": dial tcp: lookup bad-server.com on 127.0.0.53:53: no such host
+2025/02/16 17:02:57 Server https://bad-server.com is unreachable: Get "https://bad-server.com": dial tcp: lookup bad-server.com on 127.0.0.53:53: no such host
+2025/02/16 17:03:07 Server https://bad-server.com is unreachable: Get "https://bad-server.com": dial tcp: lookup bad-server.com on 127.0.0.53:53: no such host
+2025/02/16 17:03:17 Server https://bad-server.com is unreachable: Get "https://bad-server.com": dial tcp: lookup bad-server.com on 127.0.0.53:53: no such host
+2025/02/16 17:03:27 Server https://bad-server.com is unreachable: Get "https://bad-server.com": dial tcp: lookup bad-server.com on 127.0.0.53:53: no such host
+2025/02/16 17:03:37 Server https://bad-server.com is unreachable: Get "https://bad-server.com": dial tcp: lookup bad-server.com on 127.0.0.53:53: no such host
+2025/02/16 17:03:47 Server https://bad-server.com is unreachable: Get "https://bad-server.com": dial tcp: lookup bad-server.com on 127.0.0.53:53: no such host
+2025/02/16 17:03:57 Server https://bad-server.com is unreachable: Get "https://bad-server.com": dial tcp: lookup bad-server.com on 127.0.0.53:53: no such host
+2025/02/16 17:04:07 Server https://bad-server.com is unreachable: Get "https://bad-server.com": dial tcp: lookup bad-server.com on 127.0.0.53:53: no such host
+2025/02/16 17:04:17 Server https://bad-server.com is unreachable: Get "https://bad-server.com": dial tcp: lookup bad-server.com on 127.0.0.53:53: no such host
+2025/02/16 17:04:27 Server https://bad-server.com is unreachable: Get "https://bad-server.com": dial tcp: lookup bad-server.com on 127.0.0.53:53: no such host
+2025/02/16 17:04:37 Server https://bad-server.com is unreachable: Get "https://bad-server.com": dial tcp: lookup bad-server.com on 127.0.0.53:53: no such host
+2025/02/16 17:04:47 Server https://bad-server.com is unreachable: Get "https://bad-server.com": dial tcp: lookup bad-server.com on 127.0.0.53:53: no such host
+2025/02/16 17:04:57 Server https://bad-server.com is unreachable: Get "https://bad-server.com": dial tcp: lookup bad-server.com on 127.0.0.53:53: no such host
+2025/02/16 17:05:07 Server https://bad-server.com is unreachable: Get "https://bad-server.com": dial tcp: lookup bad-server.com on 127.0.0.53:53: no such host
+2025/02/16 17:05:17 Server https://bad-server.com is unreachable: Get "https://bad-server.com": dial tcp: lookup bad-server.com on 127.0.0.53:53: no such host
+2025/02/16 17:05:27 Server https://bad-server.com is unreachable: Get "https://bad-server.com": dial tcp: lookup bad-server.com on 127.0.0.53:53: no such host
+2025/02/16 17:05:37 Server https://bad-server.com is unreachable: Get "https://bad-server.com": dial tcp: lookup bad-server.com on 127.0.0.53:53: no such host
+2025/02/16 17:05:47 Server https://bad-server.com is unreachable: Get "https://bad-server.com": dial tcp: lookup bad-server.com on 127.0.0.53:53: no such host
+2025/02/16 17:05:57 Server https://bad-server.com is unreachable: Get "https://bad-server.com": dial tcp: lookup bad-server.com on 127.0.0.53:53: no such host
+2025/02/16 17:06:07 Server https://bad-server.com is unreachable: Get "https://bad-server.com": dial tcp: lookup bad-server.com on 127.0.0.53:53: no such host
+2025/02/16 17:06:17 Server https://bad-server.com is unreachable: Get "https://bad-server.com": dial tcp: lookup bad-server.com on 127.0.0.53:53: no such host
+2025/02/16 17:06:27 Server https://bad-server.com is unreachable: Get "https://bad-server.com": dial tcp: lookup bad-server.com on 127.0.0.53:53: no such host
+2025/02/16 17:06:37 Server https://bad-server.com is unreachable: Get "https://bad-server.com": dial tcp: lookup bad-server.com on 127.0.0.53:53: no such host
+2025/02/16 17:06:47 Server https://bad-server.com is unreachable: Get "https://bad-server.com": dial tcp: lookup bad-server.com on 127.0.0.53:53: no such host
+2025/02/16 17:06:57 Server https://bad-server.com is unreachable: Get "https://bad-server.com": dial tcp: lookup bad-server.com on 127.0.0.53:53: no such host
+2025/02/16 17:07:07 Server https://bad-server.com is unreachable: Get "https://bad-server.com": dial tcp: lookup bad-server.com on 127.0.0.53:53: no such host
+2025/02/16 17:07:17 Server https://bad-server.com is unreachable: Get "https://bad-server.com": dial tcp: lookup bad-server.com on 127.0.0.53:53: no such host
+2025/02/16 17:07:27 Server https://bad-server.com is unreachable: Get "https://bad-server.com": dial tcp: lookup bad-server.com on 127.0.0.53:53: no such host
+2025/02/16 17:07:37 Server https://bad-server.com is unreachable: Get "https://bad-server.com": dial tcp: lookup bad-server.com on 127.0.0.53:53: no such host
+2025/02/16 17:07:47 Server https://bad-server.com is unreachable: Get "https://bad-server.com": dial tcp: lookup bad-server.com on 127.0.0.53:53: no such host
+2025/02/16 17:07:57 Server https://bad-server.com is unreachable: Get "https://bad-server.com": dial tcp: lookup bad-server.com on 127.0.0.53:53: no such host
+2025/02/16 17:08:07 Server https://bad-server.com is unreachable: Get "https://bad-server.com": dial tcp: lookup bad-server.com on 127.0.0.53:53: no such host
+2025/02/16 17:08:17 Server https://bad-server.com is unreachable: Get "https://bad-server.com": dial tcp: lookup bad-server.com on 127.0.0.53:53: no such host
+2025/02/16 17:08:27 Server https://bad-server.com is unreachable: Get "https://bad-server.com": dial tcp: lookup bad-server.com on 127.0.0.53:53: no such host
+2025/02/16 17:08:37 Server https://bad-server.com is unreachable: Get "https://bad-server.com": dial tcp: lookup bad-server.com on 127.0.0.53:53: no such host
+2025/02/16 17:08:47 Server https://bad-server.com is unreachable: Get "https://bad-server.com": dial tcp: lookup bad-server.com on 127.0.0.53:53: no such host
+2025/02/16 17:09:01 Server https://bad-server.com is unreachable: Get "https://bad-server.com": dial tcp: lookup bad-server.com on 127.0.0.53:53: no such host
+2025/02/16 17:09:05 Server https://bad-server.com is unreachable: Get "https://bad-server.com": dial tcp: lookup bad-server.com on 127.0.0.53:53: no such host
+2025/02/16 17:09:14 Server https://bad-server.com is unreachable: Get "https://bad-server.com": dial tcp: lookup bad-server.com on 127.0.0.53:53: no such host
+2025/02/16 17:09:15 Server https://bad-server.com is unreachable: Get "https://bad-server.com": dial tcp: lookup bad-server.com on 127.0.0.53:53: no such host
+2025/02/16 17:09:16 Server https://bad-server.com is unreachable: Get "https://bad-server.com": dial tcp: lookup bad-server.com on 127.0.0.53:53: no such host
+2025/02/16 17:09:17 Server https://bad-server.com is unreachable: Get "https://bad-server.com": dial tcp: lookup bad-server.com on 127.0.0.53:53: no such host
+2025/02/16 17:09:19 Server https://bad-server.com is unreachable: Get "https://bad-server.com": dial tcp: lookup bad-server.com on 127.0.0.53:53: no such host
+2025/02/16 17:09:21 Server https://bad-server.com is unreachable: Get "https://bad-server.com": dial tcp: lookup bad-server.com on 127.0.0.53:53: no such host
+2025/02/16 17:09:23 Server https://bad-server.com is unreachable: Get "https://bad-server.com": dial tcp: lookup bad-server.com on 127.0.0.53:53: no such host
+2025/02/16 17:09:25 Server https://bad-server.com is unreachable: Get "https://bad-server.com": dial tcp: lookup bad-server.com on 127.0.0.53:53: no such host
+2025/02/16 17:09:25 Server https://bad-server.com is unreachable: Get "https://bad-server.com": dial tcp: lookup bad-server.com on 127.0.0.53:53: no such host
+2025/02/16 17:09:26 Server https://bad-server.com is unreachable: Get "https://bad-server.com": dial tcp: lookup bad-server.com on 127.0.0.53:53: no such host
+2025/02/16 17:09:28 Server https://bad-server.com is unreachable: Get "https://bad-server.com": dial tcp: lookup bad-server.com on 127.0.0.53:53: no such host
+2025/02/16 17:09:29 Server https://bad-server.com is unreachable: Get "https://bad-server.com": dial tcp: lookup bad-server.com on 127.0.0.53:53: no such host
+2025/02/16 17:09:32 Server https://bad-server.com is unreachable: Get "https://bad-server.com": dial tcp: lookup bad-server.com on 127.0.0.53:53: no such host
+2025/02/16 17:09:34 Server https://bad-server.com is unreachable: Get "https://bad-server.com": dial tcp: lookup bad-server.com on 127.0.0.53:53: no such host
+2025/02/16 17:09:35 Server https://bad-server.com is unreachable: Get "https://bad-server.com": dial tcp: lookup bad-server.com on 127.0.0.53:53: no such host
+2025/02/16 17:09:35 Server https://bad-server.com is unreachable: Get "https://bad-server.com": dial tcp: lookup bad-server.com on 127.0.0.53:53: no such host
+2025/02/16 17:09:36 Server https://bad-server.com is unreachable: Get "https://bad-server.com": dial tcp: lookup bad-server.com on 127.0.0.53:53: no such host
+2025/02/16 17:09:45 Server https://bad-server.com is unreachable: Get "https://bad-server.com": dial tcp: lookup bad-server.com on 127.0.0.53:53: no such host
+2025/02/16 17:09:55 Server https://bad-server.com is unreachable: Get "https://bad-server.com": dial tcp: lookup bad-server.com on 127.0.0.53:53: no such host
+2025/02/16 17:10:00 Server https://bad-server.com is unreachable: Get "https://bad-server.com": dial tcp: lookup bad-server.com on 127.0.0.53:53: no such host
+2025/02/16 17:10:05 Server https://bad-server.com is unreachable: Get "https://bad-server.com": dial tcp: lookup bad-server.com on 127.0.0.53:53: no such host
+2025/02/16 17:10:15 Server https://bad-server.com is unreachable: Get "https://bad-server.com": dial tcp: lookup bad-server.com on 127.0.0.53:53: no such host
+2025/02/16 17:10:25 Server https://bad-server.com is unreachable: Get "https://bad-server.com": dial tcp: lookup bad-server.com on 127.0.0.53:53: no such host
+2025/02/16 17:10:35 Server https://bad-server.com is unreachable: Get "https://bad-server.com": dial tcp: lookup bad-server.com on 127.0.0.53:53: no such host
+2025/02/16 17:10:45 Server https://bad-server.com is unreachable: Get "https://bad-server.com": dial tcp: lookup bad-server.com on 127.0.0.53:53: no such host
+2025/02/16 17:10:55 Server https://bad-server.com is unreachable: Get "https://bad-server.com": dial tcp: lookup bad-server.com on 127.0.0.53:53: no such host
+2025/02/16 17:11:05 Server https://bad-server.com is unreachable: Get "https://bad-server.com": dial tcp: lookup bad-server.com on 127.0.0.53:53: no such host
+2025/02/16 17:11:15 Server https://bad-server.com is unreachable: Get "https://bad-server.com": dial tcp: lookup bad-server.com on 127.0.0.53:53: no such host
+2025/02/16 17:11:25 Server https://bad-server.com is unreachable: Get "https://bad-server.com": dial tcp: lookup bad-server.com on 127.0.0.53:53: no such host
+2025/02/16 17:11:40 Server https://bad-server.com is unreachable: Get "https://bad-server.com": dial tcp: lookup bad-server.com on 127.0.0.53:53: no such host
+2025/02/16 17:11:45 Server https://bad-server.com is unreachable: Get "https://bad-server.com": dial tcp: lookup bad-server.com on 127.0.0.53:53: no such host
+2025/02/16 17:11:55 Server https://bad-server.com is unreachable: Get "https://bad-server.com": dial tcp: lookup bad-server.com on 127.0.0.53:53: no such host
+2025/02/16 17:12:05 Server https://bad-server.com is unreachable: Get "https://bad-server.com": dial tcp: lookup bad-server.com on 127.0.0.53:53: no such host
+2025/02/16 17:12:15 Server https://bad-server.com is unreachable: Get "https://bad-server.com": dial tcp: lookup bad-server.com on 127.0.0.53:53: no such host
+2025/02/16 17:12:25 Server https://bad-server.com is unreachable: Get "https://bad-server.com": dial tcp: lookup bad-server.com on 127.0.0.53:53: no such host
+2025/02/16 17:12:35 Server https://bad-server.com is unreachable: Get "https://bad-server.com": dial tcp: lookup bad-server.com on 127.0.0.53:53: no such host
+2025/02/16 17:12:45 Server https://bad-server.com is unreachable: Get "https://bad-server.com": dial tcp: lookup bad-server.com on 127.0.0.53:53: no such host
+2025/02/16 17:12:55 Server https://bad-server.com is unreachable: Get "https://bad-server.com": dial tcp: lookup bad-server.com on 127.0.0.53:53: no such host
+2025/02/16 17:13:05 Server https://bad-server.com is unreachable: Get "https://bad-server.com": dial tcp: lookup bad-server.com on 127.0.0.53:53: no such host
+2025/02/16 17:13:20 Server https://bad-server.com is unreachable: Get "https://bad-server.com": dial tcp: lookup bad-server.com on 127.0.0.53:53: no such host
+2025/02/16 17:13:25 Server https://bad-server.com is unreachable: Get "https://bad-server.com": dial tcp: lookup bad-server.com on 127.0.0.53:53: no such host
+2025/02/16 17:13:35 Server https://bad-server.com is unreachable: Get "https://bad-server.com": dial tcp: lookup bad-server.com on 127.0.0.53:53: no such host
+2025/02/16 17:13:45 Server https://bad-server.com is unreachable: Get "https://bad-server.com": dial tcp: lookup bad-server.com on 127.0.0.53:53: no such host
+2025/02/16 17:13:55 Server https://bad-server.com is unreachable: Get "https://bad-server.com": dial tcp: lookup bad-server.com on 127.0.0.53:53: no such host
+2025/02/16 17:14:05 Server https://bad-server.com is unreachable: Get "https://bad-server.com": dial tcp: lookup bad-server.com on 127.0.0.53:53: no such host
+2025/02/16 17:14:15 Server https://bad-server.com is unreachable: Get "https://bad-server.com": dial tcp: lookup bad-server.com on 127.0.0.53:53: no such host
+2025/02/16 17:14:25 Server https://bad-server.com is unreachable: Get "https://bad-server.com": dial tcp: lookup bad-server.com on 127.0.0.53:53: no such host
+2025/02/16 17:17:52 ERROR: Server https://bad-server.com is unreachable or returned status &{%!d(string=Get) %!d(string=https://bad-server.com) 824635041184}
+2025/02/16 17:18:02 ERROR: Server https://bad-server.com is unreachable or returned status &{%!d(string=Get) %!d(string=https://bad-server.com) 824635040144}
+2025/02/16 17:18:12 ERROR: Server https://bad-server.com is unreachable or returned status &{%!d(string=Get) %!d(string=https://bad-server.com) 824636981968}
+2025/02/16 17:18:20 ERROR: Server https://bad-server.com is unreachable or returned status &{%!d(string=Get) %!d(string=https://bad-server.com) 824635859584}
+2025/02/16 17:18:22 ERROR: Server https://bad-server.com is unreachable or returned status &{%!d(string=Get) %!d(string=https://bad-server.com) 824636982528}
+2025/02/16 17:18:32 ERROR: Server https://bad-server.com is unreachable or returned status &{%!d(string=Get) %!d(string=https://bad-server.com) 824635860384}
+2025/02/16 17:19:14 ERROR: Server https://bad-server.com is unreachable or returned status Get "https://bad-server.com": dial tcp: lookup bad-server.com on 127.0.0.53:53: no such host
+2025/02/16 17:19:19 ERROR: Server https://bad-server.com is unreachable or returned status Get "https://bad-server.com": dial tcp: lookup bad-server.com on 127.0.0.53:53: no such host
+2025/02/16 17:19:24 ERROR: Server https://bad-server.com is unreachable or returned status Get "https://bad-server.com": dial tcp: lookup bad-server.com on 127.0.0.53:53: no such host
+2025/02/16 17:19:34 ERROR: Server https://bad-server.com is unreachable or returned status Get "https://bad-server.com": dial tcp: lookup bad-server.com on 127.0.0.53:53: no such host
+2025/02/16 17:19:44 ERROR: Server https://bad-server.com is unreachable or returned status Get "https://bad-server.com": dial tcp: lookup bad-server.com on 127.0.0.53:53: no such host
+2025/02/16 17:19:54 ERROR: Server https://bad-server.com is unreachable or returned status Get "https://bad-server.com": dial tcp: lookup bad-server.com on 127.0.0.53:53: no such host
+2025/02/16 17:20:09 ERROR: Server https://bad-server.com is unreachable or returned status Get "https://bad-server.com": dial tcp: lookup bad-server.com on 127.0.0.53:53: no such host
+2025/02/16 17:20:14 ERROR: Server https://bad-server.com is unreachable or returned status Get "https://bad-server.com": dial tcp: lookup bad-server.com on 127.0.0.53:53: no such host
+2025/02/16 17:20:24 ERROR: Server https://bad-server.com is unreachable or returned status Get "https://bad-server.com": dial tcp: lookup bad-server.com on 127.0.0.53:53: no such host
+2025/02/16 17:20:34 ERROR: Server https://bad-server.com is unreachable or returned status Get "https://bad-server.com": dial tcp: lookup bad-server.com on 127.0.0.53:53: no such host
+2025/02/16 17:20:44 ERROR: Server https://bad-server.com is unreachable or returned status Get "https://bad-server.com": dial tcp: lookup bad-server.com on 127.0.0.53:53: no such host
+2025/02/16 17:20:54 ERROR: Server https://bad-server.com is unreachable or returned status Get "https://bad-server.com": dial tcp: lookup bad-server.com on 127.0.0.53:53: no such host
+2025/02/16 17:21:04 ERROR: Server https://bad-server.com is unreachable or returned status Get "https://bad-server.com": dial tcp: lookup bad-server.com on 127.0.0.53:53: no such host
+2025/02/16 17:21:14 ERROR: Server https://bad-server.com is unreachable or returned status Get "https://bad-server.com": dial tcp: lookup bad-server.com on 127.0.0.53:53: no such host
+2025/02/16 17:21:24 ERROR: Server https://bad-server.com is unreachable or returned status Get "https://bad-server.com": dial tcp: lookup bad-server.com on 127.0.0.53:53: no such host
+2025/02/16 17:21:34 ERROR: Server https://bad-server.com is unreachable or returned status Get "https://bad-server.com": dial tcp: lookup bad-server.com on 127.0.0.53:53: no such host
+2025/02/16 17:21:44 ERROR: Server https://bad-server.com is unreachable or returned status Get "https://bad-server.com": dial tcp: lookup bad-server.com on 127.0.0.53:53: no such host
+2025/02/16 17:21:54 ERROR: Server https://bad-server.com is unreachable or returned status Get "https://bad-server.com": dial tcp: lookup bad-server.com on 127.0.0.53:53: no such host
+2025/02/16 17:22:04 ERROR: Server https://bad-server.com is unreachable or returned status Get "https://bad-server.com": dial tcp: lookup bad-server.com on 127.0.0.53:53: no such host
+2025/02/16 17:22:14 ERROR: Server https://bad-server.com is unreachable or returned status Get "https://bad-server.com": dial tcp: lookup bad-server.com on 127.0.0.53:53: no such host
+2025/02/16 17:22:24 ERROR: Server https://bad-server.com is unreachable or returned status Get "https://bad-server.com": dial tcp: lookup bad-server.com on 127.0.0.53:53: no such host
+2025/02/16 17:22:34 ERROR: Server https://bad-server.com is unreachable or returned status Get "https://bad-server.com": dial tcp: lookup bad-server.com on 127.0.0.53:53: no such host
+2025/02/16 17:22:44 ERROR: Server https://bad-server.com is unreachable or returned status Get "https://bad-server.com": dial tcp: lookup bad-server.com on 127.0.0.53:53: no such host
+2025/02/16 17:22:54 ERROR: Server https://bad-server.com is unreachable or returned status Get "https://bad-server.com": dial tcp: lookup bad-server.com on 127.0.0.53:53: no such host
+2025/02/16 17:23:04 ERROR: Server https://bad-server.com is unreachable or returned status Get "https://bad-server.com": dial tcp: lookup bad-server.com on 127.0.0.53:53: no such host
+2025/02/16 17:23:14 ERROR: Server https://bad-server.com is unreachable or returned status Get "https://bad-server.com": dial tcp: lookup bad-server.com on 127.0.0.53:53: no such host
+2025/02/16 17:23:24 ERROR: Server https://bad-server.com is unreachable or returned status Get "https://bad-server.com": dial tcp: lookup bad-server.com on 127.0.0.53:53: no such host
+2025/02/16 17:23:34 ERROR: Server https://bad-server.com is unreachable or returned status Get "https://bad-server.com": dial tcp: lookup bad-server.com on 127.0.0.53:53: no such host
+2025/02/16 17:23:44 ERROR: Server https://bad-server.com is unreachable or returned status Get "https://bad-server.com": dial tcp: lookup bad-server.com on 127.0.0.53:53: no such host
+2025/02/16 17:23:54 ERROR: Server https://bad-server.com is unreachable or returned status Get "https://bad-server.com": dial tcp: lookup bad-server.com on 127.0.0.53:53: no such host
+2025/02/16 17:24:04 ERROR: Server https://bad-server.com is unreachable or returned status Get "https://bad-server.com": dial tcp: lookup bad-server.com on 127.0.0.53:53: no such host
+2025/02/16 17:24:14 ERROR: Server https://bad-server.com is unreachable or returned status Get "https://bad-server.com": dial tcp: lookup bad-server.com on 127.0.0.53:53: no such host
+2025/02/16 17:24:24 ERROR: Server https://bad-server.com is unreachable or returned status Get "https://bad-server.com": dial tcp: lookup bad-server.com on 127.0.0.53:53: no such host
+2025/02/16 17:24:34 ERROR: Server https://bad-server.com is unreachable or returned status Get "https://bad-server.com": dial tcp: lookup bad-server.com on 127.0.0.53:53: no such host
+2025/02/16 17:24:44 ERROR: Server https://bad-server.com is unreachable or returned status Get "https://bad-server.com": dial tcp: lookup bad-server.com on 127.0.0.53:53: no such host
+2025/02/16 17:24:54 ERROR: Server https://bad-server.com is unreachable or returned status Get "https://bad-server.com": dial tcp: lookup bad-server.com on 127.0.0.53:53: no such host
+2025/02/16 17:25:04 ERROR: Server https://bad-server.com is unreachable or returned status Get "https://bad-server.com": dial tcp: lookup bad-server.com on 127.0.0.53:53: no such host
+2025/02/16 17:25:14 ERROR: Server https://bad-server.com is unreachable or returned status Get "https://bad-server.com": dial tcp: lookup bad-server.com on 127.0.0.53:53: no such host
+2025/02/16 17:25:24 ERROR: Server https://bad-server.com is unreachable or returned status Get "https://bad-server.com": dial tcp: lookup bad-server.com on 127.0.0.53:53: no such host
+2025/02/16 17:25:34 ERROR: Server https://bad-server.com is unreachable or returned status Get "https://bad-server.com": dial tcp: lookup bad-server.com on 127.0.0.53:53: no such host
+2025/02/16 17:25:44 ERROR: Server https://bad-server.com is unreachable or returned status Get "https://bad-server.com": dial tcp: lookup bad-server.com on 127.0.0.53:53: no such host
+2025/02/16 17:25:54 ERROR: Server https://bad-server.com is unreachable or returned status Get "https://bad-server.com": dial tcp: lookup bad-server.com on 127.0.0.53:53: no such host
+2025/02/16 17:26:04 ERROR: Server https://bad-server.com is unreachable or returned status Get "https://bad-server.com": dial tcp: lookup bad-server.com on 127.0.0.53:53: no such host
+2025/02/16 17:26:14 ERROR: Server https://bad-server.com is unreachable or returned status Get "https://bad-server.com": dial tcp: lookup bad-server.com on 127.0.0.53:53: no such host
+2025/02/16 17:26:24 ERROR: Server https://bad-server.com is unreachable or returned status Get "https://bad-server.com": dial tcp: lookup bad-server.com on 127.0.0.53:53: no such host
+2025/02/16 17:26:34 ERROR: Server https://bad-server.com is unreachable or returned status Get "https://bad-server.com": dial tcp: lookup bad-server.com on 127.0.0.53:53: no such host
+2025/02/16 17:26:44 ERROR: Server https://bad-server.com is unreachable or returned status Get "https://bad-server.com": dial tcp: lookup bad-server.com on 127.0.0.53:53: no such host
+2025/02/16 17:26:58 ERROR: Server https://bad-server.com is unreachable or returned status 502
+2025/02/16 17:27:06 ERROR: Server https://bad-server.com is unreachable or returned status 502
+2025/02/16 17:27:08 ERROR: Server https://bad-server.com is unreachable or returned status 502
+2025/02/16 17:27:18 ERROR: Server https://bad-server.com is unreachable or returned status 502
+2025/02/16 17:27:28 ERROR: Server https://bad-server.com is unreachable or returned status 502
+2025/02/16 17:27:38 ERROR: Server https://bad-server.com is unreachable or returned status 502
+2025/02/16 17:27:48 ERROR: Server https://bad-server.com is unreachable or returned status 502
+2025/02/16 17:27:58 ERROR: Server https://bad-server.com is unreachable or returned status 502
+2025/02/16 17:28:08 ERROR: Server https://bad-server.com is unreachable or returned status 502
+2025/02/16 17:28:18 ERROR: Server https://bad-server.com is unreachable or returned status 502
+2025/02/16 17:28:33 ERROR: Server https://bad-server.com is unreachable or returned status 502
+2025/02/16 17:28:38 ERROR: Server https://bad-server.com is unreachable or returned status 502
+2025/02/16 17:28:48 ERROR: Server https://bad-server.com is unreachable or returned status 502
+2025/02/16 17:28:58 ERROR: Server https://bad-server.com is unreachable or returned status 502
+2025/02/16 17:29:08 ERROR: Server https://bad-server.com is unreachable or returned status 502
+2025/02/16 17:29:18 ERROR: Server https://bad-server.com is unreachable or returned status 502
+2025/02/16 17:29:28 ERROR: Server https://bad-server.com is unreachable or returned status 502
+2025/02/16 17:29:38 ERROR: Server https://bad-server.com is unreachable or returned status 502
+2025/02/16 17:29:48 ERROR: Server https://bad-server.com is unreachable or returned status 502
+2025/02/16 17:29:58 ERROR: Server https://bad-server.com is unreachable or returned status 502
+2025/02/16 17:30:08 ERROR: Server https://bad-server.com is unreachable or returned status 502
+2025/02/16 17:30:18 ERROR: Server https://bad-server.com is unreachable or returned status 502
+2025/02/16 17:30:28 ERROR: Server https://bad-server.com is unreachable or returned status 502
+2025/02/16 17:30:38 ERROR: Server https://bad-server.com is unreachable or returned status 502
+2025/02/16 17:30:48 ERROR: Server https://bad-server.com is unreachable or returned status 502
+2025/02/16 17:30:58 ERROR: Server https://bad-server.com is unreachable or returned status 502
+2025/02/16 17:31:08 ERROR: Server https://bad-server.com is unreachable or returned status 502
+2025/02/16 17:31:18 ERROR: Server https://bad-server.com is unreachable or returned status 502
+2025/02/16 17:31:28 ERROR: Server https://bad-server.com is unreachable or returned status 502
+2025/02/16 17:31:38 ERROR: Server https://bad-server.com is unreachable or returned status 502
+2025/02/16 17:31:53 ERROR: Server https://bad-server.com is unreachable or returned status 502
+2025/02/16 17:31:58 ERROR: Server https://bad-server.com is unreachable or returned status 502
+2025/02/16 17:32:08 ERROR: Server https://bad-server.com is unreachable or returned status 502
+2025/02/16 17:32:18 ERROR: Server https://bad-server.com is unreachable or returned status 502
+2025/02/16 17:32:28 ERROR: Server https://bad-server.com is unreachable or returned status 502
+2025/02/16 17:32:38 ERROR: Server https://bad-server.com is unreachable or returned status 502
+2025/02/16 17:32:48 ERROR: Server https://bad-server.com is unreachable or returned status 502
+2025/02/16 17:32:58 ERROR: Server https://bad-server.com is unreachable or returned status 502
+2025/02/16 17:33:08 ERROR: Server https://bad-server.com is unreachable or returned status 502
+2025/02/16 17:33:18 ERROR: Server https://bad-server.com is unreachable or returned status 502
+2025/02/16 17:33:28 ERROR: Server https://bad-server.com is unreachable or returned status 502
+2025/02/16 17:33:38 ERROR: Server https://bad-server.com is unreachable or returned status 502
+2025/02/16 17:33:48 ERROR: Server https://bad-server.com is unreachable or returned status 502
+2025/02/16 17:33:58 ERROR: Server https://bad-server.com is unreachable or returned status 502
+2025/02/16 17:34:08 ERROR: Server https://bad-server.com is unreachable or returned status 502
+2025/02/16 17:34:18 ERROR: Server https://bad-server.com is unreachable or returned status 502
+2025/02/16 17:34:28 ERROR: Server https://bad-server.com is unreachable or returned status 502
+2025/02/16 17:34:38 ERROR: Server https://bad-server.com is unreachable or returned status 502
+2025/02/16 17:34:48 ERROR: Server https://bad-server.com is unreachable or returned status 502
+2025/02/16 17:34:58 ERROR: Server https://bad-server.com is unreachable or returned status 502
+2025/02/16 17:35:08 ERROR: Server https://bad-server.com is unreachable or returned status 502
+2025/02/16 17:35:18 ERROR: Server https://bad-server.com is unreachable or returned status 502
+2025/02/16 17:35:28 ERROR: Server https://bad-server.com is unreachable or returned status 502
+2025/02/16 17:35:38 ERROR: Server https://bad-server.com is unreachable or returned status 502
+2025/02/16 17:35:48 ERROR: Server https://bad-server.com is unreachable or returned status 502
+2025/02/16 17:35:58 ERROR: Server https://bad-server.com is unreachable or returned status 502
+2025/02/16 17:36:08 ERROR: Server https://bad-server.com is unreachable or returned status 502
+2025/02/16 17:36:18 ERROR: Server https://bad-server.com is unreachable or returned status 502
+2025/02/16 17:36:28 ERROR: Server https://bad-server.com is unreachable or returned status 502
+2025/02/16 17:36:38 ERROR: Server https://bad-server.com is unreachable or returned status 502
+2025/02/16 17:36:48 ERROR: Server https://bad-server.com is unreachable or returned status 502
+2025/02/16 17:36:58 ERROR: Server https://bad-server.com is unreachable or returned status 502
+2025/02/16 17:37:08 ERROR: Server https://bad-server.com is unreachable or returned status 502
+2025/02/16 17:37:18 ERROR: Server https://bad-server.com is unreachable or returned status 502
+2025/02/16 17:37:28 ERROR: Server https://bad-server.com is unreachable or returned status 502
+2025/02/16 17:37:38 ERROR: Server https://bad-server.com is unreachable or returned status 502
+2025/02/16 17:37:48 ERROR: Server https://bad-server.com is unreachable or returned status 502
+2025/02/16 17:37:58 ERROR: Server https://bad-server.com is unreachable or returned status 502
+2025/02/16 17:38:08 ERROR: Server https://bad-server.com is unreachable or returned status 502
+2025/02/16 17:38:18 ERROR: Server https://bad-server.com is unreachable or returned status 502
+2025/02/16 17:38:28 ERROR: Server https://bad-server.com is unreachable or returned status 502
+2025/02/16 17:38:38 ERROR: Server https://bad-server.com is unreachable or returned status 502
+2025/02/16 17:38:48 ERROR: Server https://bad-server.com is unreachable or returned status 502
+2025/02/16 17:38:58 ERROR: Server https://bad-server.com is unreachable or returned status 502
+2025/02/16 17:39:08 ERROR: Server https://bad-server.com is unreachable or returned status 502
+2025/02/16 17:39:18 ERROR: Server https://bad-server.com is unreachable or returned status 502
+2025/02/16 17:39:28 ERROR: Server https://bad-server.com is unreachable or returned status 502
+2025/02/16 17:39:38 ERROR: Server https://bad-server.com is unreachable or returned status 502
+2025/02/16 17:39:48 ERROR: Server https://bad-server.com is unreachable or returned status 502
+2025/02/16 17:39:58 ERROR: Server https://bad-server.com is unreachable or returned status 502
+2025/02/16 17:40:08 ERROR: Server https://bad-server.com is unreachable or returned status 502
+2025/02/16 17:40:18 ERROR: Server https://bad-server.com is unreachable or returned status 502
+2025/02/16 17:40:28 ERROR: Server https://bad-server.com is unreachable or returned status 502
+2025/02/16 17:40:38 ERROR: Server https://bad-server.com is unreachable or returned status 502
+2025/02/16 17:40:48 ERROR: Server https://bad-server.com is unreachable or returned status 502
+2025/02/16 17:40:58 ERROR: Server https://bad-server.com is unreachable or returned status 502
+2025/02/16 17:41:08 ERROR: Server https://bad-server.com is unreachable or returned status 502
+2025/02/16 17:41:18 ERROR: Server https://bad-server.com is unreachable or returned status 502
+2025/02/16 17:41:28 ERROR: Server https://bad-server.com is unreachable or returned status 502
+2025/02/16 17:41:38 ERROR: Server https://bad-server.com is unreachable or returned status 502
+2025/02/16 17:41:48 ERROR: Server https://bad-server.com is unreachable or returned status 502
+2025/02/16 17:41:58 ERROR: Server https://bad-server.com is unreachable or returned status 502
+2025/02/16 17:42:08 ERROR: Server https://bad-server.com is unreachable or returned status 502
+2025/02/16 17:42:18 ERROR: Server https://bad-server.com is unreachable or returned status 502
+2025/02/16 17:42:28 ERROR: Server https://bad-server.com is unreachable or returned status 502
+2025/02/16 17:42:38 ERROR: Server https://bad-server.com is unreachable or returned status 502
+2025/02/16 17:42:48 ERROR: Server https://bad-server.com is unreachable or returned status 502
+2025/02/16 17:42:58 ERROR: Server https://bad-server.com is unreachable or returned status 502
+2025/02/16 17:43:08 ERROR: Server https://bad-server.com is unreachable or returned status 502
+2025/02/16 17:43:18 ERROR: Server https://bad-server.com is unreachable or returned status 502
+2025/02/16 17:43:28 ERROR: Server https://bad-server.com is unreachable or returned status 502
+2025/02/16 17:43:38 ERROR: Server https://bad-server.com is unreachable or returned status 502
+2025/02/16 17:43:48 ERROR: Server https://bad-server.com is unreachable or returned status 502
+2025/02/16 17:43:58 ERROR: Server https://bad-server.com is unreachable or returned status 502
+2025/02/16 17:44:08 ERROR: Server https://bad-server.com is unreachable or returned status 502
+2025/02/16 17:44:18 ERROR: Server https://bad-server.com is unreachable or returned status 502
+2025/02/16 17:44:28 ERROR: Server https://bad-server.com is unreachable or returned status 502
+2025/02/16 17:44:38 ERROR: Server https://bad-server.com is unreachable or returned status 502

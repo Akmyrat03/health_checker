@@ -1,0 +1,9 @@
+{
+    "servers": [
+        "https://google.com",
+        "https://mekanly.com.tm",
+        "https://some-server.com"
+    ],
+    "check_interval": 10,
+    "log_file": "health_check.log"
+}
