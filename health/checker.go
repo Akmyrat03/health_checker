@@ -5,13 +5,19 @@ import (
 	"log"
 	"net/http"
 	"os"
+	"time"
 )
 
-func CheckServerHealth(url string, logFile string) error {
-	resp, err := http.Get(url)
+func CheckServerHealth(url string, logFile string, timeout int) error {
+
+	client := &http.Client{
+		Timeout: time.Duration(timeout) * time.Second,
+	}
+
+	resp, err := client.Get(url)
 	if err != nil {
 		writeLog(fmt.Sprintf("ERROR: Server %s is unreachable or returned status %d", url, 404), logFile)
-		return fmt.Errorf("ERROR: Server %s is unreachable or returned status 502", url)
+		return fmt.Errorf("ERROR: Server %s is unreachable or returned status 404", url)
 	}
 	defer resp.Body.Close()
 

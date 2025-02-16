@@ -10,6 +10,7 @@ type Config struct {
 	Servers       []string `json:"servers"`
 	CheckInterval int      `json:"check_interval"`
 	LogFile       string   `json:"log_file"`
+	Timeout       int      `json:"timeout"`
 }
 
 func LoadConfig(filename string) (*Config, error) {

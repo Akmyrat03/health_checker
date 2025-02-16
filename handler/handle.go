@@ -16,7 +16,7 @@ func HealthHandler(w http.ResponseWriter, r *http.Request, config *config.Config
 	status := make([]HealthStatus, 0)
 
 	for _, server := range config.Servers {
-		err := health.CheckServerHealth(server, config.LogFile)
+		err := health.CheckServerHealth(server, config.LogFile, config.Timeout)
 		status = append(status, HealthStatus{
 			ServerURL: server,
 			Status:    "Healthy",

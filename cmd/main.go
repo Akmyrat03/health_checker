@@ -3,11 +3,10 @@ package main
 import (
 	"checker/config"
 	"checker/handler"
-	"checker/health"
+	"checker/scheduler"
 	"fmt"
 	"log"
 	"net/http"
-	"time"
 )
 
 func main() {
@@ -18,8 +17,7 @@ func main() {
 
 	fmt.Println("Servers:", config.Servers)
 	fmt.Println("Check Interval:", config.CheckInterval)
-
-	ticker := time.NewTicker(time.Duration(config.CheckInterval) * time.Second)
+	fmt.Println("Timeout:", config.Timeout)
 
 	http.HandleFunc("/health", func(w http.ResponseWriter, r *http.Request) {
 		handler.HealthHandler(w, r, config)
@@ -27,10 +25,5 @@ func main() {
 
 	go http.ListenAndServe(":8080", nil)
 
-	for {
-		select {
-		case <-ticker.C:
-			health.StartWorkers(config.Servers, 2, config.CheckInterval, config.LogFile)
-		}
-	}
+	scheduler.StartHealthCheckScheduler(config.Servers, config.CheckInterval, config.LogFile, config.Timeout)
 }
