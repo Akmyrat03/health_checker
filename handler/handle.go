@@ -1,8 +1,8 @@
 package handler
 
 import (
+	health "checker/checker"
 	"checker/config"
-	"checker/health"
 	"encoding/json"
 	"net/http"
 )

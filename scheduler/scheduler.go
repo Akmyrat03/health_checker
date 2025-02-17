@@ -1,7 +1,7 @@
 package scheduler
 
 import (
-	"checker/health"
+	health "checker/checker"
 	"log"
 	"time"
 )
