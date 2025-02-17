@@ -1,9 +1,4 @@
 {
-    "servers": [
-        "https://google.com",
-        "https://mekanly.com.tm",
-        "https://bad-server.com"
-    ],
     "check_interval": 10,
     "log_file": "health_check.log",
     "timeout": 5
