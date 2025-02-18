@@ -5,6 +5,7 @@ import (
 	"checker/config"
 	"encoding/json"
 	"net/http"
+	"sync"
 )
 
 type HealthStatus struct {
@@ -13,25 +14,35 @@ type HealthStatus struct {
 }
 
 func HealthHandler(w http.ResponseWriter, r *http.Request, cfg *config.Config) {
-	servers, err := config.LoadServers("servers.json")
+	serversChan, err := config.LoadServers("servers.json")
 	if err != nil {
 		http.Error(w, "failed to load servers", http.StatusInternalServerError)
 		return
 	}
 
-	status := make([]HealthStatus, 0)
+	var wg sync.WaitGroup
+	var status []HealthStatus
 
-	for _, server := range servers {
-		err := health.CheckServerHealth(server, cfg.LogFile, cfg.Timeout)
-		status = append(status, HealthStatus{
-			ServerURL: server,
-			Status:    "Healthy",
-		})
+	for server := range serversChan {
+		wg.Add(1)
 
-		if err != nil {
-			status[len(status)-1].Status = "Unhealthy"
-		}
+		go func(server string) {
+			defer wg.Done()
+
+			err := health.CheckServerHealth(server, cfg.LogFile, cfg.Timeout)
+			serverStatus := "Healthy"
+			if err != nil {
+				serverStatus = "Unhealthy"
+			}
+
+			status = append(status, HealthStatus{
+				ServerURL: server,
+				Status:    serverStatus,
+			})
+		}(server)
 	}
+
+	wg.Wait()
 
 	w.Header().Set("Content-Type", "application/json")
 	json.NewEncoder(w).Encode(status)

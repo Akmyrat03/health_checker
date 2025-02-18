@@ -6,15 +6,18 @@ import (
 	"time"
 )
 
-func StartHealthCheckScheduler(servers []string, checkInterval int, logFile string, timeout int) {
+func StartHealthCheckScheduler(filename string, checkInterval int, logFile string, timeout int) {
 	ticker := time.NewTicker(time.Duration(checkInterval) * time.Second)
+	defer ticker.Stop()
 
 	for {
 		select {
 		case <-ticker.C:
-			if err := health.StartWorkers(servers, 2, checkInterval, logFile, timeout); err != nil {
-				log.Printf("Health check failed: %v", err)
-			}
+			go func() {
+				if err := health.StartWorkers(filename, 3, checkInterval, logFile, timeout); err != nil {
+					log.Printf("Health check failed: %v", err)
+				}
+			}()
 		}
 	}
 }

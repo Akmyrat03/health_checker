@@ -1,47 +1,53 @@
 package health
 
 import (
+	"checker/config"
 	"fmt"
 
 	"golang.org/x/sync/errgroup"
 )
 
-func worker(id int, jobs <-chan string, results chan<- string, logFile string, timeout int, g *errgroup.Group) {
-	g.Go(func() error {
-		for server := range jobs {
-			err := CheckServerHealth(server, logFile, timeout)
-			if err != nil {
-				results <- fmt.Sprintf("ERROR: %s", err)
-			} else {
-				results <- fmt.Sprintf("SUCCESS: %s is healthy", server)
-			}
+func worker(id int, jobs <-chan string, results chan<- string, logFile string, timeout int) error {
+	for server := range jobs {
+		err := CheckServerHealth(server, logFile, timeout)
+		if err != nil {
+			results <- fmt.Sprintf("ERROR: %s", err)
+		} else {
+			results <- fmt.Sprintf("SUCCESS: %s is healthy", server)
 		}
-		return nil
-	})
+	}
+	return nil
 }
 
-func StartWorkers(servers []string, workerCount int, checkInterval int, logFile string, timeout int) error {
-	jobs := make(chan string, len(servers))
-	results := make(chan string, len(servers))
+func StartWorkers(filename string, workerCount int, checkInterval int, logFile string, timeout int) error {
+	jobs := make(chan string, workerCount)
+	results := make(chan string, workerCount)
 
 	var g errgroup.Group
 
 	for w := 1; w <= workerCount; w++ {
-		go worker(w, jobs, results, logFile, timeout, &g)
+		w := w
+		g.Go(func() error {
+			return worker(w, jobs, results, logFile, timeout)
+		})
 	}
 
-	for _, server := range servers {
-		jobs <- server
+	serversChan, err := config.LoadServers(filename)
+	if err != nil {
+		return fmt.Errorf("error loading servers: %v", err)
 	}
-	close(jobs)
+
+	go func() {
+		for server := range serversChan {
+			jobs <- server
+		}
+		close(jobs)
+	}()
 
 	if err := g.Wait(); err != nil {
 		return fmt.Errorf("some workers failed: %v", err)
 	}
 
-	for range servers {
-		<-results
-	}
 	close(results)
 
 	return nil
