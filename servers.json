@@ -1,8 +1,18 @@
 [
-    {"server": "https://google.com"},
-    {"server": "https://mekanly.com.tm"},
-    {"server": "https://bad-server.com"},
-    {"server": "https://mail.google.com"},
-    {"server": "https://youtube.com"},
-    {"server": "https://github.com"}
+    {
+        "name": "Mekanly group",
+        "server": "https://mekanly.com.tm"
+    },
+    {
+        "name": "Google",
+        "server": "https://google.com"
+    },
+    {
+        "name": "Github",
+        "server": "https://github.com"
+    },
+    {
+        "name": "Arassachylyk",
+        "server": "http://199.40.7.55:8000/api/v1/health"
+    }
 ]

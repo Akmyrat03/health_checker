@@ -14,7 +14,7 @@ func StartHealthCheckScheduler(filename string, checkInterval int, logFile strin
 		select {
 		case <-ticker.C:
 			go func() {
-				if err := health.StartWorkers(filename, 3, checkInterval, logFile, timeout); err != nil {
+				if err := health.StartWorkers(filename, 2, checkInterval, logFile, timeout); err != nil {
 					log.Printf("Health check failed: %v", err)
 				}
 			}()

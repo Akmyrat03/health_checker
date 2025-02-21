@@ -22,10 +22,10 @@ func main() {
 
 	// fmt.Printf("Servers: %+v\n", servers)
 	fmt.Println("Server started on :8080")
-	fmt.Println("Check Interval:", cfg.CheckInterval)
-	fmt.Println("Timeout:", cfg.Timeout)
+	fmt.Println("Check Interval:", cfg.HealthChecker.CheckInterval)
+	fmt.Println("Timeout:", cfg.HealthChecker.Timeout)
 
-	go scheduler.StartHealthCheckScheduler("servers.json", cfg.CheckInterval, cfg.LogFile, cfg.Timeout)
+	go scheduler.StartHealthCheckScheduler("servers.json", cfg.HealthChecker.CheckInterval, cfg.HealthChecker.LogFile, cfg.HealthChecker.Timeout)
 
 	http.HandleFunc("/health", func(w http.ResponseWriter, r *http.Request) {
 		handler.HealthHandler(w, r, cfg)

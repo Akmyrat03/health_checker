@@ -1,4 +1,4 @@
-package health
+package checker
 
 import (
 	"checker/config"
@@ -7,20 +7,20 @@ import (
 	"golang.org/x/sync/errgroup"
 )
 
-func worker(id int, jobs <-chan string, results chan<- string, logFile string, timeout int) error {
+func worker(id int, jobs <-chan config.Server, results chan<- string, logFile string, timeout int) error {
 	for server := range jobs {
-		err := CheckServerHealth(server, logFile, timeout)
+		err := CheckServerHealth(server.Name, server.Server, logFile, timeout)
 		if err != nil {
 			results <- fmt.Sprintf("ERROR: %s", err)
 		} else {
-			results <- fmt.Sprintf("SUCCESS: %s is healthy", server)
+			results <- fmt.Sprintf("SUCCESS: %s (%s) is healthy", server.Name, server.Server)
 		}
 	}
 	return nil
 }
 
 func StartWorkers(filename string, workerCount int, checkInterval int, logFile string, timeout int) error {
-	jobs := make(chan string, workerCount)
+	jobs := make(chan config.Server, workerCount)
 	results := make(chan string, workerCount)
 
 	var g errgroup.Group

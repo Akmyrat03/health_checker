@@ -1,5 +1,18 @@
 {
+  "health_checker":{
     "check_interval": 10,
     "log_file": "health_check.log",
     "timeout": 5
+  },
+  "smtp_config":{
+    "smtp_server": "smtp.gmail.com",
+    "smtp_port": "587",
+    "smtp_email": "akmobile.tm@gmail.com",
+    "smtp_pass": "whclvwobghfdrmqm",
+    "subject_prefix": "Server Message",
+    "users": [
+      "backendprogrammer0@gmail.com",
+      "makmyrat4@gmail.com"
+    ]
+    }
 }

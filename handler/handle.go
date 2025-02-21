@@ -1,7 +1,7 @@
 package handler
 
 import (
-	health "checker/checker"
+	"checker/checker"
 	"checker/config"
 	"encoding/json"
 	"net/http"
@@ -9,12 +9,13 @@ import (
 )
 
 type HealthStatus struct {
-	ServerURL string `json:"server_url"`
-	Status    string `json:"status"`
+	ServerName string `json:"server_name"`
+	ServerURL  string `json:"server_url"`
+	Status     string `json:"status"`
 }
 
 func HealthHandler(w http.ResponseWriter, r *http.Request, cfg *config.Config) {
-	serversChan, err := config.LoadServers("servers.json")
+	serversChan, err := config.LoadServers("config.json")
 	if err != nil {
 		http.Error(w, "failed to load servers", http.StatusInternalServerError)
 		return
@@ -26,18 +27,19 @@ func HealthHandler(w http.ResponseWriter, r *http.Request, cfg *config.Config) {
 	for server := range serversChan {
 		wg.Add(1)
 
-		go func(server string) {
+		go func(server config.Server) {
 			defer wg.Done()
 
-			err := health.CheckServerHealth(server, cfg.LogFile, cfg.Timeout)
+			err := checker.CheckServerHealth(server.Name, server.Server, cfg.HealthChecker.LogFile, cfg.HealthChecker.Timeout)
 			serverStatus := "Healthy"
 			if err != nil {
 				serverStatus = "Unhealthy"
 			}
 
 			status = append(status, HealthStatus{
-				ServerURL: server,
-				Status:    serverStatus,
+				ServerName: server.Name,
+				ServerURL:  server.Server,
+				Status:     serverStatus,
 			})
 		}(server)
 	}
