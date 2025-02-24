@@ -1,4 +1,4 @@
-w# Health Checker 
+w# Health Checker
 
 The Health Checker service is designed to periodically check the health of multiple servers by sending HTTP GET requests and sending notifications if the servers are down or if they recover. The service is implemented in Go and can be easily run using Docker.
 
@@ -12,7 +12,7 @@ The Health Checker service is designed to periodically check the health of multi
 ## Prerequisites
 
 - **Docker** Make sure Docker installed. Refer to [Docker Installation Guide](https://docs.docker.com/get-docker) if needed.
-- **Golang** (optional for local testing): Requires Go 1.20
+- **Golang** (optional for local testing): Requires Go 1.23
 
 ## Installation
 ```bash
