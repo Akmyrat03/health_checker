@@ -1,4 +1,4 @@
-w# Health Checker
+# Health Checker
 
 The Health Checker service is designed to periodically check the health of multiple servers by sending HTTP GET requests and sending notifications if the servers are down or if they recover. The service is implemented in Go and can be easily run using Docker.
 
