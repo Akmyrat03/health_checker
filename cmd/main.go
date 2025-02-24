@@ -1,36 +1,19 @@
 package main
 
 import (
-	config "checker/config"
-	"checker/handler"
-	"checker/scheduler"
-	"fmt"
+	"checker/internal/config"
+	"checker/internal/domain/app"
+	"checker/internal/infrastructure/fiber"
 	"log"
-	"net/http"
 )
 
 func main() {
 	cfg, err := config.LoadConfig("config.json")
 	if err != nil {
-		log.Fatalf("config.LoadConfig - Error: %v", err)
+		log.Fatalf("[config.LoadConfig]: failed to load config file: %v", err)
 	}
 
-	_, err = config.LoadServers("servers.json")
-	if err != nil {
-		log.Fatalf("config.LoadServers - Error: %v", err)
-	}
+	go app.TimeScheduler(cfg, 2)
 
-	// fmt.Printf("Servers: %+v\n", servers)
-	fmt.Println("Server started on :8080")
-	fmt.Println("Check Interval:", cfg.HealthChecker.CheckInterval)
-	fmt.Println("Timeout:", cfg.HealthChecker.Timeout)
-
-	go scheduler.StartHealthCheckScheduler("servers.json", cfg.HealthChecker.CheckInterval, cfg.HealthChecker.LogFile, cfg.HealthChecker.Timeout)
-
-	http.HandleFunc("/health", func(w http.ResponseWriter, r *http.Request) {
-		handler.HealthHandler(w, r, cfg)
-	})
-
-	log.Fatal(http.ListenAndServe(":8080", nil))
-
+	fiber.RunFiberServer(cfg)
 }

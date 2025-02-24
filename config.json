@@ -1,18 +1,41 @@
 {
-  "health_checker":{
-    "check_interval": 10,
-    "log_file": "health_check.log",
+  "basic":{
+    "interval": 10,
     "timeout": 5
   },
   "smtp_config":{
     "smtp_server": "smtp.gmail.com",
-    "smtp_port": "587",
+    "smtp_port": 587,
     "smtp_email": "akmobile.tm@gmail.com",
     "smtp_pass": "whclvwobghfdrmqm",
     "subject_prefix": "Server Message",
-    "users": [
+    "receivers": [
       "backendprogrammer0@gmail.com",
-      "makmyrat4@gmail.com"
+      "makmyrat4@gmail.com",
+      "akmobile.tm@gmail.com"
     ]
+  },
+  "servers":[
+    {
+      "name": "Mekanly Group",
+      "url": "https://mekanly.com.tm"
+    },
+    {
+      "name": "Google",
+      "url": "https://google.com"
+    },
+    {
+      "name": "GitHub",
+      "url": "https://github.com"
+    },
+    {
+      "name": "Arassachylyk",
+      "url": "http://199.40.7.55:8000/api/v1/health"
     }
+  ],
+  "app":{
+    "app_host": "0.0.0.0",
+    "app_port": "3000",
+    "app_endpoint": "${HOST}:${APP_PORT}"
+  }
 }
