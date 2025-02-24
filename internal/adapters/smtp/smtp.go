@@ -3,7 +3,6 @@ package smtp
 import (
 	"checker/internal/config"
 	"fmt"
-	"log"
 	"net/smtp"
 	"strings"
 )
@@ -20,7 +19,7 @@ func NewSMTP(filename string) (*SMTP, error) {
 	return &SMTP{smtp: cfg.SMTP}, nil
 }
 
-func (s *SMTP) SendMessage(message string) error {
+func (s *SMTP) SendEmail(message string) error {
 	auth := smtp.PlainAuth("", s.smtp.SMTPEmail, s.smtp.SMTPPass, s.smtp.SMTPServer)
 
 	usersTo := s.smtp.Receivers
@@ -48,17 +47,4 @@ func (s *SMTP) SendMessage(message string) error {
 	}
 
 	return nil
-}
-
-func SendEmailNotification(message string) {
-	smtp, err := NewSMTP("config.json")
-	if err != nil {
-		log.Printf("Failed to load config file: %v", err)
-		return
-	}
-
-	err = smtp.SendMessage(message)
-	if err != nil {
-		log.Printf("Failed to send email notification: %v", err)
-	}
 }

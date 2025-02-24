@@ -1,7 +1,8 @@
-package app
+package usecases
 
 import (
 	"checker/internal/config"
+	"checker/internal/domain/app/services"
 	"fmt"
 	"log"
 	"time"
@@ -9,9 +10,9 @@ import (
 	"golang.org/x/sync/errgroup"
 )
 
-func Worker(id int, jobs <-chan config.Server, results chan<- string, logFile string, timeout int) error {
+func Worker(id int, jobs <-chan config.Server, results chan<- string, logFile string, timeout int, messageSender services.MessageSender) error {
 	for server := range jobs {
-		err := CheckServer(server.Name, server.Url, logFile, timeout)
+		err := CheckServer(server.Name, server.Url, logFile, timeout, messageSender)
 		if err != nil {
 			results <- fmt.Sprintf("ERROR: [%s] %s", server.Url, err)
 		} else {
@@ -21,7 +22,7 @@ func Worker(id int, jobs <-chan config.Server, results chan<- string, logFile st
 	return nil
 }
 
-func StartWorkers(cfg *config.Config, workerCount int) error {
+func StartWorkers(cfg *config.Config, workerCount int, messageSender services.MessageSender) error {
 	jobs := make(chan config.Server, len(cfg.Servers))
 	results := make(chan string, len(cfg.Servers))
 
@@ -30,7 +31,7 @@ func StartWorkers(cfg *config.Config, workerCount int) error {
 	for w := 1; w <= workerCount; w++ {
 		w := w
 		g.Go(func() error {
-			return Worker(w, jobs, results, "logs/errors.log", cfg.Basic.Timeout)
+			return Worker(w, jobs, results, "logs/errors.log", cfg.Basic.Timeout, messageSender)
 		})
 	}
 
@@ -50,7 +51,7 @@ func StartWorkers(cfg *config.Config, workerCount int) error {
 	return nil
 }
 
-func TimeScheduler(cfg *config.Config, workerCount int) {
+func TimeScheduler(cfg *config.Config, workerCount int, messageSender services.MessageSender) {
 	ticker := time.NewTicker(time.Duration(cfg.Basic.Interval) * time.Second)
 	defer ticker.Stop()
 
@@ -59,7 +60,7 @@ func TimeScheduler(cfg *config.Config, workerCount int) {
 		select {
 		case <-ticker.C:
 			go func() {
-				if err := StartWorkers(cfg, workerCount); err != nil {
+				if err := StartWorkers(cfg, workerCount, messageSender); err != nil {
 					log.Printf("Health check failed: %v", err)
 				}
 			}()

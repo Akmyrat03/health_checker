@@ -1,8 +1,10 @@
 package controllers
 
 import (
+	"checker/internal/adapters/smtp"
 	"checker/internal/config"
-	"checker/internal/domain/app"
+	"checker/internal/domain/app/usecases"
+
 	"fmt"
 	"sync"
 
@@ -25,6 +27,12 @@ func ShowStatus(c *fiber.Ctx) error {
 		})
 	}
 
+	messageSender, err := smtp.NewSMTP("config.json")
+	if err != nil {
+		fmt.Printf("Failed to initialize SMTP: %v\n", err)
+		return err
+	}
+
 	var wg sync.WaitGroup
 	var mu sync.Mutex
 	status := []HealthStatus{}
@@ -35,7 +43,7 @@ func ShowStatus(c *fiber.Ctx) error {
 		go func(server config.Server) {
 			defer wg.Done()
 
-			err := app.CheckServer(server.Name, server.Url, "logs/errors.log", cfg.Basic.Timeout)
+			err := usecases.CheckServer(server.Name, server.Url, "logs/errors.log", cfg.Basic.Timeout, messageSender)
 			serverStatus := "Healthy"
 			if err != nil {
 				serverStatus = "Unhealthy"

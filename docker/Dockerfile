@@ -2,7 +2,7 @@ FROM golang:1.23-alpine AS builder
 
 WORKDIR /app
 
-COPY go.mod go.sum config.json servers.json ./
+COPY go.mod go.sum config.json ./
 
 RUN go mod tidy
 
@@ -19,7 +19,6 @@ WORKDIR /root/
 
 COPY --from=builder /app/main .
 COPY --from=builder /app/config.json .
-COPY --from=builder /app/servers.json .
 
 EXPOSE 8080
 

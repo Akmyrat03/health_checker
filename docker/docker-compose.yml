@@ -7,5 +7,4 @@ services:
       - "8080:8080"
     volumes:
       - ./config.json:/app/config.json:ro
-      - ./servers.json:/app/servers.json:ro
     restart: always  
