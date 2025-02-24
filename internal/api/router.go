@@ -1,7 +1,7 @@
 package controllers
 
 import (
-	"checker/internal/api/controllers"
+	"checker/internal/api/rest/controllers"
 
 	"github.com/gofiber/fiber/v2"
 )
