@@ -7,15 +7,25 @@ import (
 )
 
 type Config struct {
-	Basic   Basic    `json:"basic"`
-	SMTP    SMTP     `json:"smtp_config"`
-	Servers []Server `json:"servers"`
-	App     App      `json:"app"`
+	Basic    Basic      `json:"basic"`
+	SMTP     SMTP       `json:"smtp_config"`
+	Servers  []Server   `json:"servers"`
+	App      App        `json:"app"`
+	Postgres PostgresDB `json:"postgres"`
 }
 
 type Basic struct {
 	Interval int `json:"interval"`
 	Timeout  int `json:"timeout"`
+}
+
+type PostgresDB struct {
+	Host     string `json:"host"`
+	Port     string `json:"port"`
+	User     string `json:"user"`
+	Password string `json:"password"`
+	DBName   string `json:"dbname"`
+	SslMode  string `json:"sslmode"`
 }
 
 type SMTP struct {

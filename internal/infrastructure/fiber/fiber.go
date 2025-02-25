@@ -1,7 +1,7 @@
 package fiber
 
 import (
-	controllers "checker/internal/api"
+	rest_v0 "checker/internal/api/rest/v0"
 	"checker/internal/config"
 	"context"
 	"fmt"
@@ -32,7 +32,7 @@ func RunFiberServer(cfg *config.Config) {
 	})
 
 	api := app.Group("/api")
-	controllers.GroupControllers(&api)
+	rest_v0.GroupControllers(&api)
 
 	go func() {
 		err = app.Listen(

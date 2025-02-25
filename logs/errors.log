@@ -58,3 +58,122 @@
 2025/02/24 19:14:24 Server - Arassachylyk (http://199.40.7.55:8000/api/v1/health) is back online
 2025/02/24 19:18:35 ERROR: Server - Arassachylyk (http://199.40.7.55:8000/api/v1/health) is unreachable or returned status 500
 2025/02/24 19:18:45 Server - Arassachylyk (http://199.40.7.55:8000/api/v1/health) is back online
+2025/02/25 16:28:15 ERROR: Server - Google (https://google.com) is unreachable or returned status 500
+2025/02/25 16:28:15 ERROR: Server - GitHub (https://github.com) is unreachable or returned status 500
+2025/02/25 16:28:24 ERROR: Server - Arassachylyk (http://199.40.7.55:8000/api/v1/health) is unreachable or returned status 500
+2025/02/25 16:28:25 ERROR: Server - Google (https://google.com) is unreachable or returned status 500
+2025/02/25 16:28:31 ERROR: Server - Arassachylyk (http://199.40.7.55:8000/api/v1/health) is unreachable or returned status 500
+2025/02/25 16:28:31 ERROR: Server - Arassachylyk (http://199.40.7.55:8000/api/v1/health) is unreachable or returned status 500
+2025/02/25 16:28:35 ERROR: Server - Google (https://google.com) is unreachable or returned status 500
+2025/02/25 16:28:40 Server - GitHub (https://github.com) is back online
+2025/02/25 16:28:41 Server - Google (https://google.com) is back online
+2025/02/25 16:28:47 Server - Arassachylyk (http://199.40.7.55:8000/api/v1/health) is back online
+2025/02/25 16:28:50 Server - Arassachylyk (http://199.40.7.55:8000/api/v1/health) is back online
+2025/02/25 16:29:35 ERROR: Server - Google (https://google.com) is unreachable or returned status 500
+2025/02/25 16:29:50 Server - Google (https://google.com) is back online
+2025/02/25 16:34:35 ERROR: Server - Google (https://google.com) is unreachable or returned status 500
+2025/02/25 16:34:45 ERROR: Server - GitHub (https://github.com) is unreachable or returned status 500
+2025/02/25 16:35:03 Server - Google (https://google.com) is back online
+2025/02/25 16:35:11 Server - Google (https://google.com) is back online
+2025/02/25 16:35:25 ERROR: Server - Google (https://google.com) is unreachable or returned status 500
+2025/02/25 16:36:05 ERROR: Server - GitHub (https://github.com) is unreachable or returned status 500
+2025/02/25 16:36:21 Server - Google (https://google.com) is back online
+2025/02/25 16:36:32 Server - GitHub (https://github.com) is back online
+2025/02/25 16:36:33 Server - Google (https://google.com) is back online
+2025/02/25 16:36:40 Server - GitHub (https://github.com) is back online
+2025/02/25 16:37:25 ERROR: Server - Google (https://google.com) is unreachable or returned status 500
+2025/02/25 16:37:25 ERROR: Server - GitHub (https://github.com) is unreachable or returned status 500
+2025/02/25 16:37:35 ERROR: Server - GitHub (https://github.com) is unreachable or returned status 500
+2025/02/25 16:37:45 ERROR: Server - GitHub (https://github.com) is unreachable or returned status 500
+2025/02/25 16:37:55 ERROR: Server - Google (https://google.com) is unreachable or returned status 500
+2025/02/25 16:37:55 ERROR: Server - GitHub (https://github.com) is unreachable or returned status 500
+2025/02/25 16:38:22 Server - Google (https://google.com) is back online
+2025/02/25 16:38:31 Server - Google (https://google.com) is back online
+2025/02/25 16:38:51 Server - Google (https://google.com) is back online
+2025/02/25 16:39:35 ERROR: Server - Google (https://google.com) is unreachable or returned status 500
+2025/02/25 16:39:55 ERROR: Server - Google (https://google.com) is unreachable or returned status 500
+2025/02/25 16:40:02 Server - GitHub (https://github.com) is back online
+2025/02/25 16:40:03 Server - Google (https://google.com) is back online
+2025/02/25 16:40:13 Server - Google (https://google.com) is back online
+2025/02/25 16:40:45 ERROR: Server - Google (https://google.com) is unreachable or returned status 500
+2025/02/25 16:41:02 Server - Google (https://google.com) is back online
+2025/02/25 16:41:12 Server - Google (https://google.com) is back online
+2025/02/25 16:42:35 ERROR: Server - Google (https://google.com) is unreachable or returned status 500
+2025/02/25 16:42:45 ERROR: Server - Google (https://google.com) is unreachable or returned status 500
+2025/02/25 16:44:07 ERROR: Server - Mekanly Group (https://mekanly.com.tm) is unreachable or returned status 500
+2025/02/25 16:44:07 ERROR: Server - Google (https://google.com) is unreachable or returned status 500
+2025/02/25 16:44:17 ERROR: Server - Google (https://google.com) is unreachable or returned status 500
+2025/02/25 16:44:22 Server - Mekanly Group (https://mekanly.com.tm) is back online
+2025/02/25 16:44:26 Server - Google (https://google.com) is back online
+2025/02/25 16:44:34 Server - Google (https://google.com) is back online
+2025/02/25 16:44:47 ERROR: Server - Google (https://google.com) is unreachable or returned status 500
+2025/02/25 16:45:13 Server - Google (https://google.com) is back online
+2025/02/25 16:45:24 Server - Google (https://google.com) is back online
+2025/02/25 16:45:57 ERROR: Server - Google (https://google.com) is unreachable or returned status 500
+2025/02/25 16:46:13 Server - Google (https://google.com) is back online
+2025/02/25 16:46:24 Server - Google (https://google.com) is back online
+2025/02/25 16:46:47 ERROR: Server - Google (https://google.com) is unreachable or returned status 500
+2025/02/25 16:46:57 ERROR: Server - GitHub (https://github.com) is unreachable or returned status 500
+2025/02/25 16:47:07 ERROR: Server - Google (https://google.com) is unreachable or returned status 500
+2025/02/25 16:47:14 Server - Google (https://google.com) is back online
+2025/02/25 16:47:22 Server - GitHub (https://github.com) is back online
+2025/02/25 16:48:47 ERROR: Server - Google (https://google.com) is unreachable or returned status 500
+2025/02/25 16:49:02 Server - Google (https://google.com) is back online
+2025/02/25 16:51:07 ERROR: Server - GitHub (https://github.com) is unreachable or returned status 500
+2025/02/25 16:51:23 Server - GitHub (https://github.com) is back online
+2025/02/25 16:51:33 Server - GitHub (https://github.com) is back online
+2025/02/25 16:52:17 ERROR: Server - GitHub (https://github.com) is unreachable or returned status 500
+2025/02/25 16:52:27 ERROR: Server - GitHub (https://github.com) is unreachable or returned status 500
+2025/02/25 16:52:55 Server - GitHub (https://github.com) is back online
+2025/02/25 17:02:57 ERROR: Server - Google (https://google.com) is unreachable or returned status 500
+2025/02/25 17:03:22 Server - Google (https://google.com) is back online
+2025/02/25 17:07:07 ERROR: Server - Google (https://google.com) is unreachable or returned status 500
+2025/02/25 17:07:22 Server - Google (https://google.com) is back online
+2025/02/25 17:09:07 ERROR: Server - GitHub (https://github.com) is unreachable or returned status 500
+2025/02/25 17:09:42 Server - GitHub (https://github.com) is back online
+2025/02/25 17:09:52 Server - GitHub (https://github.com) is back online
+2025/02/25 17:10:37 ERROR: Server - Google (https://google.com) is unreachable or returned status 500
+2025/02/25 17:10:53 Server - Google (https://google.com) is back online
+2025/02/25 17:11:03 Server - Google (https://google.com) is back online
+2025/02/25 17:11:13 Server - Google (https://google.com) is back online
+2025/02/25 17:11:17 ERROR: Server - GitHub (https://github.com) is unreachable or returned status 500
+2025/02/25 17:11:27 ERROR: Server - GitHub (https://github.com) is unreachable or returned status 500
+2025/02/25 17:11:34 Server - GitHub (https://github.com) is back online
+2025/02/25 17:11:42 Server - GitHub (https://github.com) is back online
+2025/02/25 17:12:22 ERROR: Server - Arassachylyk (http://199.40.7.55:8000/api/v1/health) is unreachable or returned status 500
+2025/02/25 17:12:53 ERROR: Server - Arassachylyk (http://199.40.7.55:8000/api/v1/health) is unreachable or returned status 500
+2025/02/25 17:12:55 ERROR: Server - Google (https://google.com) is unreachable or returned status 500
+2025/02/25 17:13:02 ERROR: Server - Arassachylyk (http://199.40.7.55:8000/api/v1/health) is unreachable or returned status 500
+2025/02/25 17:13:05 ERROR: Server - Google (https://google.com) is unreachable or returned status 500
+2025/02/25 17:13:11 Server - Google (https://google.com) is back online
+2025/02/25 17:13:22 Server - Google (https://google.com) is back online
+2025/02/25 17:13:25 ERROR: Server - GitHub (https://github.com) is unreachable or returned status 500
+2025/02/25 17:13:34 Server - GitHub (https://github.com) is back online
+2025/02/25 17:15:20 ERROR: Server - Arassachylyk (http://199.40.7.55:8000/api/v1/health) is unreachable or returned status 500
+2025/02/25 17:17:05 ERROR: Server - Google (https://google.com) is unreachable or returned status 500
+2025/02/25 17:17:30 ERROR: Server - Arassachylyk (http://199.40.7.55:8000/api/v1/health) is unreachable or returned status 500
+2025/02/25 17:17:30 Server - Google (https://google.com) is back online
+2025/02/25 17:17:55 ERROR: Server - Google (https://google.com) is unreachable or returned status 500
+2025/02/25 17:17:55 ERROR: Server - GitHub (https://github.com) is unreachable or returned status 500
+2025/02/25 17:18:10 Server - Google (https://google.com) is back online
+2025/02/25 17:18:11 Server - GitHub (https://github.com) is back online
+2025/02/25 17:19:40 ERROR: Server - Arassachylyk (http://199.40.7.55:8000/api/v1/health) is unreachable or returned status 500
+2025/02/25 17:21:50 ERROR: Server - Arassachylyk (http://199.40.7.55:8000/api/v1/health) is unreachable or returned status 500
+2025/02/25 17:24:01 ERROR: Server - Arassachylyk (http://199.40.7.55:8000/api/v1/health) is unreachable or returned status 500
+2025/02/25 17:24:13 ERROR: Server - Arassachylyk (http://199.40.7.55:8000/api/v1/health) is unreachable or returned status 500
+2025/02/25 17:26:31 ERROR: Server - Arassachylyk (http://199.40.7.55:8000/api/v1/health) is unreachable or returned status 500
+2025/02/25 17:26:55 ERROR: Server - Google (https://google.com) is unreachable or returned status 500
+2025/02/25 17:27:21 Server - Google (https://google.com) is back online
+2025/02/25 17:28:35 ERROR: Server - GitHub (https://github.com) is unreachable or returned status 500
+2025/02/25 17:28:41 ERROR: Server - Arassachylyk (http://199.40.7.55:8000/api/v1/health) is unreachable or returned status 500
+2025/02/25 17:28:51 Server - GitHub (https://github.com) is back online
+2025/02/25 17:29:03 Server - GitHub (https://github.com) is back online
+2025/02/25 17:30:50 ERROR: Server - Arassachylyk (http://199.40.7.55:8000/api/v1/health) is unreachable or returned status 500
+2025/02/25 17:33:00 ERROR: Server - Arassachylyk (http://199.40.7.55:8000/api/v1/health) is unreachable or returned status 500
+2025/02/25 17:35:10 ERROR: Server - Arassachylyk (http://199.40.7.55:8000/api/v1/health) is unreachable or returned status 500
+2025/02/25 17:37:20 ERROR: Server - Arassachylyk (http://199.40.7.55:8000/api/v1/health) is unreachable or returned status 500
+2025/02/25 17:38:24 ERROR: Server - Google (https://google.com) is unreachable or returned status 500
+2025/02/25 17:38:40 Server - Google (https://google.com) is back online
+2025/02/25 17:39:30 ERROR: Server - Arassachylyk (http://199.40.7.55:8000/api/v1/health) is unreachable or returned status 500
+2025/02/25 17:41:15 ERROR: Server - Arassachylyk (http://199.40.7.55:8000/api/v1/health) is unreachable or returned status 500
+2025/02/25 17:43:23 ERROR: Server - Arassachylyk (http://199.40.7.55:8000/api/v1/health) is unreachable or returned status 500
