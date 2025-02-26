@@ -14,18 +14,18 @@ import (
 	"github.com/gofiber/fiber/v2"
 )
 
-// @CreateServer godoc
-// @Summary Create Server
-// @Description Create Server
-// @Tags servers
+// CreateReceiver godoc
+// @Summary Create a receiver
+// @Description Create a receiver
+// @Tags receivers
 // @Produce json
-// @Param name body requests.CreateServer true "Server Name"
-// @Success 200 {object} responses.CreateServer "success"
-// @Router /api/v0/servers [post]
-func CreateServer(c *fiber.Ctx) error {
-	var server requests.CreateServer
+// @Param name body requests.CreateReceiver true "Receiver"
+// Success 200 {object} responses.CreateReceiver "Success"
+// @Router /api/v0/receiver [post]
+func CreateReceiver(c *fiber.Ctx) error {
+	var receiver requests.CreateReceiver
 
-	if err := c.BodyParser(&server); err != nil {
+	if err := c.BodyParser(&receiver); err != nil {
 		fmt.Printf("ERROR: Failed to parse request body: %v\n", err)
 		return c.Status(fiber.StatusBadRequest).JSON(entities.Error{
 			Loc:  []string{"body"},
@@ -34,12 +34,11 @@ func CreateServer(c *fiber.Ctx) error {
 		})
 	}
 
-	input := inputs.CreateServer{
-		Name: server.Name,
-		Url:  server.Url,
+	input := inputs.CreateReceiver{
+		Email: receiver.Email,
 	}
 
-	serverUseCase, err := api.MakeServerUseCase()
+	receiverUseCase, err := api.MakeReceiverUseCase()
 	if err != nil {
 		return c.Status(fiber.StatusInternalServerError).JSON(fiber.Map{
 			"code":    fiber.StatusInternalServerError,
@@ -47,43 +46,43 @@ func CreateServer(c *fiber.Ctx) error {
 		})
 	}
 
-	id, err := serverUseCase.Create(c.Context(), input)
+	id, err := receiverUseCase.Create(c.Context(), input)
 	if err != nil {
-		fmt.Printf("ERROR: Failed to create server: %v\n", err)
+		fmt.Printf("ERROR: Failed to create receiver: %v\n", err)
 		return c.Status(fiber.StatusInternalServerError).JSON(entities.Error{
-			Loc:  []string{"createUseCase", "create"},
-			Msg:  "Failed to create server",
+			Loc:  []string{"receiverUseCase", "create"},
+			Msg:  err.Error(),
 			Type: "database_error",
 		})
 	}
 
-	response := responses.CreateServer{
-		Id: id,
+	response := responses.CreateReceiver{
+		ID: id,
 	}
 
 	return c.Status(fiber.StatusCreated).JSON(response)
 }
 
-// DeleteServer godoc
-// @Summary Delete Server
-// @Description Delete Server
-// @Tags servers
+// DeleteReceiver godoc
+// @Summary Delete Receiver
+// @Description Delete Receiver
+// @Tags receivers
 // @Produce json
-// @Param id query string true "Server ID"
+// @Param id query string true "Receiver ID"
 // @Success 204 "Success"
-// @Router /api/v0/servers [delete]
-func DeleteServer(c *fiber.Ctx) error {
+// @Router /api/v0/receiver [delete]
+func DeleteReceiver(c *fiber.Ctx) error {
 	id, err := strconv.Atoi(c.Query("id"))
 	if err != nil {
-		fmt.Printf("ERROR: Invalid id format: %v\n", err)
+		fmt.Printf("ERROR: Failed to parse request body: %v\n", err)
 		return c.Status(fiber.StatusBadRequest).JSON(entities.Error{
 			Loc:  []string{"form"},
-			Msg:  "ServerID must be a valid id",
-			Type: "bad_request",
+			Msg:  "ReceiverID must be a valid",
+			Type: "bad_	request",
 		})
 	}
 
-	serverUseCase, err := api.MakeServerUseCase()
+	receiverUseCase, err := api.MakeReceiverUseCase()
 	if err != nil {
 		return c.Status(fiber.StatusInternalServerError).JSON(fiber.Map{
 			"code":    fiber.StatusInternalServerError,
@@ -91,36 +90,37 @@ func DeleteServer(c *fiber.Ctx) error {
 		})
 	}
 
-	err = serverUseCase.Delete(c.Context(), id)
+	err = receiverUseCase.Delete(c.Context(), id)
 	if err != nil {
-		fmt.Printf("ERROR: Failed to delete Server: %v\n", err)
-		if errors.Is(err, app_errors.ServerDoesNotExist) {
+		fmt.Printf("ERROR: Failed to delete Receiver: %v\n", err)
+		if errors.Is(err, app_errors.ReceiverDoesNotExist) {
 			return c.Status(fiber.StatusUnprocessableEntity).JSON(entities.Error{
-				Loc:  []string{"serverUseCase", "delete"},
-				Msg:  app_errors.ServerDoesNotExist.Error(),
+				Loc:  []string{"receiverUseCase", "delete"},
+				Msg:  app_errors.ReceiverDoesNotExist.Error(),
 				Type: "bad_request",
 			})
 		}
 		return c.Status(fiber.StatusInternalServerError).JSON(entities.Error{
-			Loc:  []string{"serverUseCase", "delete"},
+			Loc:  []string{"receiverUseCase", "delete"},
 			Msg:  err.Error(),
 			Type: "internal_server_error",
 		})
 	}
 
 	return c.SendStatus(fiber.StatusNoContent)
+
 }
 
-// GetServers godoc
-// @Summary Get All Servers
-// @Description Retrieve a list of all servers
-// @Tags servers
+// GetReceivers godoc
+// @Summary Get All Receivers
+// @Description Retrieve a list of all receivers
+// @Tags receivers
 // @Produce json
-// @Success 200 {array} responses.CreateServer
+// @Success 200 "success"
 // @Failure 500 {object} entities.Error
-// @Router /api/v0/servers [get]
-func GetServers(c *fiber.Ctx) error {
-	serverUseCase, err := api.MakeServerUseCase()
+// @Router /api/v0/receiver [get]
+func GetReceivers(c *fiber.Ctx) error {
+	receiverUseCase, err := api.MakeReceiverUseCase()
 	if err != nil {
 		return c.Status(fiber.StatusInternalServerError).JSON(fiber.Map{
 			"code":    fiber.StatusInternalServerError,
@@ -128,17 +128,17 @@ func GetServers(c *fiber.Ctx) error {
 		})
 	}
 
-	servers, err := serverUseCase.List(c.Context())
+	receivers, err := receiverUseCase.List(c.Context())
 	if err != nil {
-		fmt.Printf("ERROR: Failed to list servers: %v\n", err)
+		fmt.Printf("ERROR: Failed to list receivers: %v\n", err)
 		return c.Status(fiber.StatusInternalServerError).JSON(entities.Error{
-			Loc:  []string{"serverUseCase", "list"},
-			Msg:  "Failed to list servers",
+			Loc:  []string{"receiverUseCase", "list"},
+			Msg:  err.Error(),
 			Type: "database_error",
 		})
 	}
 
-	response := servers
+	response := receivers
 
 	return c.Status(fiber.StatusOK).JSON(response)
 }

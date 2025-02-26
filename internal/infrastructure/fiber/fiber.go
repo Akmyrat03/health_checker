@@ -3,6 +3,7 @@ package fiber
 import (
 	rest_v0 "checker/internal/api/rest/v0"
 	"checker/internal/config"
+	"checker/internal/infrastructure/pgx"
 	"context"
 	"fmt"
 	"log"
@@ -12,6 +13,8 @@ import (
 	"time"
 
 	"github.com/gofiber/fiber/v2"
+	"github.com/gofiber/fiber/v2/middleware/cors"
+	"github.com/gofiber/swagger"
 )
 
 func RunFiberServer(cfg *config.Config) {
@@ -28,11 +31,39 @@ func RunFiberServer(cfg *config.Config) {
 	)
 
 	app.Get("/", func(c *fiber.Ctx) error {
-		return c.SendString("Hello, Post Management Microservice!")
+		return c.SendString("Hello, Health Checker Service!")
 	})
+
+	app.Use(cors.New(cors.Config{
+		AllowOrigins:     cfg.Cors.Origins,
+		AllowCredentials: cfg.Cors.Credentials,
+		AllowHeaders:     "*",
+		AllowMethods:     "GET POST PUT DELETE",
+	}))
 
 	api := app.Group("/api")
 	rest_v0.GroupControllers(&api)
+
+	app.Get("/swagger/*", swagger.HandlerDefault)
+
+	app.Hooks().OnListen(func(listenData fiber.ListenData) error {
+		_, err = pgx.PostgresPool()
+		if err != nil {
+			return err
+		}
+
+		return nil
+	})
+
+	app.Hooks().OnShutdown(func() error {
+		pool, err := pgx.PostgresPool()
+		if err != nil {
+			return err
+		}
+		pool.Close()
+
+		return nil
+	})
 
 	go func() {
 		err = app.Listen(

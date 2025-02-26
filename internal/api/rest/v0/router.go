@@ -17,6 +17,11 @@ func GroupControllers(app *fiber.Router) {
 	protected.Get("/servers", controllers.GetServers)
 
 	protected.Get("/basic", controllers.GetBasicConfig)
+	protected.Put("/basic", controllers.UpdateBasicConfig)
+
+	protected.Post("/receiver", controllers.CreateReceiver)
+	protected.Delete("/receiver", controllers.DeleteReceiver)
+	protected.Get("/receiver", controllers.GetReceivers)
 
 	v0.Get("/health", controllers.ShowStatus)
 }

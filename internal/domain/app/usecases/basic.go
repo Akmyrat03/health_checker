@@ -1,6 +1,7 @@
 package usecases
 
 import (
+	"checker/internal/domain/app/inputs"
 	"checker/internal/domain/app/repositories"
 	"checker/internal/domain/entities"
 	"context"
@@ -21,4 +22,13 @@ func (basicUseCase *BasicUseCase) List(ctx context.Context) ([]entities.Basic, e
 	}
 
 	return basics, nil
+}
+
+func (basicUseCase *BasicUseCase) Update(ctx context.Context, basic inputs.UpdateBasic) error {
+	err := basicUseCase.basicRepository.Update(ctx, basic)
+	if err != nil {
+		return err
+	}
+
+	return nil
 }

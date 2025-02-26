@@ -12,6 +12,7 @@ type Config struct {
 	Servers  []Server   `json:"servers"`
 	App      App        `json:"app"`
 	Postgres PostgresDB `json:"postgres"`
+	Cors     Cors       `json:"cors"`
 }
 
 type Basic struct {
@@ -46,6 +47,11 @@ type App struct {
 	Host     string `json:"app_host"`
 	Port     string `json:"app_port"`
 	EndPoint string `json:"app_endpoint"`
+}
+
+type Cors struct {
+	Origins     string `json:"cors_origins"`
+	Credentials bool   `json:"cors_credentials"`
 }
 
 func LoadConfig(filename string) (*Config, error) {

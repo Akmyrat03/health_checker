@@ -1,6 +1,7 @@
 package main
 
 import (
+	_ "checker/docs"
 	"checker/internal/adapters/smtp"
 	"checker/internal/config"
 	"checker/internal/domain/app/usecases"
@@ -9,6 +10,11 @@ import (
 	"log"
 )
 
+// @title Health Checker API
+// @version 1.0
+// @description API for managing servers
+// @schemas http, https
+// @in header
 func main() {
 	cfg, err := config.LoadConfig("config.json")
 	if err != nil {

@@ -1,0 +1,274 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "API for managing servers",
+        "title": "Health Checker API",
+        "contact": {},
+        "version": "1.0"
+    },
+    "paths": {
+        "/api/v0/basic": {
+            "get": {
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "basic_config"
+                ],
+                "summary": "Get all basic configs",
+                "responses": {
+                    "200": {
+                        "description": "success",
+                        "schema": {}
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/entities.Error"
+                        }
+                    }
+                }
+            },
+            "put": {
+                "description": "Update necessary configs: check_interval, timeout and notification interval",
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "basic_config"
+                ],
+                "summary": "Update basic config",
+                "parameters": [
+                    {
+                        "description": "Basic Config",
+                        "name": "basic",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/requests.UpdateBasic"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v0/receiver": {
+            "get": {
+                "description": "Retrieve a list of all receivers",
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "receivers"
+                ],
+                "summary": "Get All Receivers",
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/entities.Error"
+                        }
+                    }
+                }
+            },
+            "post": {
+                "description": "Create a receiver",
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "receivers"
+                ],
+                "summary": "Create a receiver",
+                "parameters": [
+                    {
+                        "description": "Receiver",
+                        "name": "name",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/requests.CreateReceiver"
+                        }
+                    }
+                ],
+                "responses": {}
+            },
+            "delete": {
+                "description": "Delete Receiver",
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "receivers"
+                ],
+                "summary": "Delete Receiver",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Receiver ID",
+                        "name": "id",
+                        "in": "query",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Success"
+                    }
+                }
+            }
+        },
+        "/api/v0/servers": {
+            "get": {
+                "description": "Retrieve a list of all servers",
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "servers"
+                ],
+                "summary": "Get All Servers",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/responses.CreateServer"
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/entities.Error"
+                        }
+                    }
+                }
+            },
+            "post": {
+                "description": "Create Server",
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "servers"
+                ],
+                "summary": "Create Server",
+                "parameters": [
+                    {
+                        "description": "Server Name",
+                        "name": "name",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/requests.CreateServer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success",
+                        "schema": {
+                            "$ref": "#/definitions/responses.CreateServer"
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "description": "Delete Server",
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "servers"
+                ],
+                "summary": "Delete Server",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Server ID",
+                        "name": "id",
+                        "in": "query",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Success"
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "entities.Error": {
+            "type": "object",
+            "properties": {
+                "loc": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "msg": {
+                    "type": "string"
+                },
+                "type": {
+                    "type": "string"
+                }
+            }
+        },
+        "requests.CreateReceiver": {
+            "type": "object",
+            "properties": {
+                "email": {
+                    "type": "string"
+                }
+            }
+        },
+        "requests.CreateServer": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string"
+                },
+                "url": {
+                    "type": "string"
+                }
+            }
+        },
+        "requests.UpdateBasic": {
+            "type": "object",
+            "properties": {
+                "check_interval": {
+                    "type": "integer"
+                },
+                "notification_interval": {
+                    "type": "integer"
+                },
+                "timeout": {
+                    "type": "integer"
+                }
+            }
+        },
+        "responses.CreateServer": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "integer"
+                }
+            }
+        }
+    }
+}

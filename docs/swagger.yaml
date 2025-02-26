@@ -1,0 +1,180 @@
+definitions:
+  entities.Error:
+    properties:
+      loc:
+        items:
+          type: string
+        type: array
+      msg:
+        type: string
+      type:
+        type: string
+    type: object
+  requests.CreateReceiver:
+    properties:
+      email:
+        type: string
+    type: object
+  requests.CreateServer:
+    properties:
+      name:
+        type: string
+      url:
+        type: string
+    type: object
+  requests.UpdateBasic:
+    properties:
+      check_interval:
+        type: integer
+      notification_interval:
+        type: integer
+      timeout:
+        type: integer
+    type: object
+  responses.CreateServer:
+    properties:
+      id:
+        type: integer
+    type: object
+info:
+  contact: {}
+  description: API for managing servers
+  title: Health Checker API
+  version: "1.0"
+paths:
+  /api/v0/basic:
+    get:
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: success
+          schema: {}
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/entities.Error'
+      summary: Get all basic configs
+      tags:
+      - basic_config
+    put:
+      description: 'Update necessary configs: check_interval, timeout and notification
+        interval'
+      parameters:
+      - description: Basic Config
+        in: body
+        name: basic
+        required: true
+        schema:
+          $ref: '#/definitions/requests.UpdateBasic'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: string
+      summary: Update basic config
+      tags:
+      - basic_config
+  /api/v0/receiver:
+    delete:
+      description: Delete Receiver
+      parameters:
+      - description: Receiver ID
+        in: query
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "204":
+          description: Success
+      summary: Delete Receiver
+      tags:
+      - receivers
+    get:
+      description: Retrieve a list of all receivers
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: success
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/entities.Error'
+      summary: Get All Receivers
+      tags:
+      - receivers
+    post:
+      description: Create a receiver
+      parameters:
+      - description: Receiver
+        in: body
+        name: name
+        required: true
+        schema:
+          $ref: '#/definitions/requests.CreateReceiver'
+      produces:
+      - application/json
+      responses: {}
+      summary: Create a receiver
+      tags:
+      - receivers
+  /api/v0/servers:
+    delete:
+      description: Delete Server
+      parameters:
+      - description: Server ID
+        in: query
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "204":
+          description: Success
+      summary: Delete Server
+      tags:
+      - servers
+    get:
+      description: Retrieve a list of all servers
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/responses.CreateServer'
+            type: array
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/entities.Error'
+      summary: Get All Servers
+      tags:
+      - servers
+    post:
+      description: Create Server
+      parameters:
+      - description: Server Name
+        in: body
+        name: name
+        required: true
+        schema:
+          $ref: '#/definitions/requests.CreateServer'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: success
+          schema:
+            $ref: '#/definitions/responses.CreateServer'
+      summary: Create Server
+      tags:
+      - servers
+swagger: "2.0"

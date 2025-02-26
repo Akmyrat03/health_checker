@@ -45,5 +45,9 @@
     "port": "5432",
     "dbname": "checker",
     "sslmode": "disable"
+  },
+  "cors":{
+    "cors_origins": "http://localhost:3000",
+    "cors_credentials": false
   }
 }

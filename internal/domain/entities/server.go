@@ -7,7 +7,7 @@ type Server struct {
 }
 
 type Basic struct {
-	CheckInterval string
-	Timeout       string
-	ErrorInterval string
+	CheckInterval int
+	Timeout       int
+	ErrorInterval int
 }
