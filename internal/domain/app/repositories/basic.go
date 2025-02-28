@@ -7,6 +7,6 @@ import (
 )
 
 type Basic interface {
-	List(ctx context.Context) ([]entities.Basic, error)
+	Get(ctx context.Context) (*entities.Basic, error)
 	Update(ctx context.Context, basic inputs.UpdateBasic) error
 }

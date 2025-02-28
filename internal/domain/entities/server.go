@@ -5,9 +5,3 @@ type Server struct {
 	Name string
 	Url  string
 }
-
-type Basic struct {
-	CheckInterval int
-	Timeout       int
-	ErrorInterval int
-}

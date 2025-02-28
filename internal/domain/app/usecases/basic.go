@@ -15,13 +15,13 @@ func NewBasicUseCase(basicRepository repositories.Basic) *BasicUseCase {
 	return &BasicUseCase{basicRepository: basicRepository}
 }
 
-func (basicUseCase *BasicUseCase) List(ctx context.Context) ([]entities.Basic, error) {
-	basics, err := basicUseCase.basicRepository.List(ctx)
+func (basicUseCase *BasicUseCase) Get(ctx context.Context) (*entities.Basic, error) {
+	basic, err := basicUseCase.basicRepository.Get(ctx)
 	if err != nil {
 		return nil, err
 	}
 
-	return basics, nil
+	return basic, nil
 }
 
 func (basicUseCase *BasicUseCase) Update(ctx context.Context, basic inputs.UpdateBasic) error {

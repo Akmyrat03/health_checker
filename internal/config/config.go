@@ -7,17 +7,11 @@ import (
 )
 
 type Config struct {
-	Basic    Basic      `json:"basic"`
 	SMTP     SMTP       `json:"smtp_config"`
-	Servers  []Server   `json:"servers"`
 	App      App        `json:"app"`
 	Postgres PostgresDB `json:"postgres"`
 	Cors     Cors       `json:"cors"`
-}
-
-type Basic struct {
-	Interval int `json:"interval"`
-	Timeout  int `json:"timeout"`
+	JWT      JWT        `json:"jwt"`
 }
 
 type PostgresDB struct {
@@ -30,17 +24,11 @@ type PostgresDB struct {
 }
 
 type SMTP struct {
-	SMTPServer    string   `json:"smtp_server"`
-	SMTPPort      int      `json:"smtp_port"`
-	SMTPEmail     string   `json:"smtp_email"`
-	SMTPPass      string   `json:"smtp_pass"`
-	SubjectPrefix string   `json:"subject_prefix"`
-	Receivers     []string `json:"receivers"`
-}
-
-type Server struct {
-	Name string `json:"name"`
-	Url  string `json:"url"`
+	SMTPServer    string `json:"smtp_server"`
+	SMTPPort      int    `json:"smtp_port"`
+	SMTPEmail     string `json:"smtp_email"`
+	SMTPPass      string `json:"smtp_pass"`
+	SubjectPrefix string `json:"subject_prefix"`
 }
 
 type App struct {
@@ -52,6 +40,10 @@ type App struct {
 type Cors struct {
 	Origins     string `json:"cors_origins"`
 	Credentials bool   `json:"cors_credentials"`
+}
+
+type JWT struct {
+	JwtSecretKey string `json:"jwt_secret_key"`
 }
 
 func LoadConfig(filename string) (*Config, error) {

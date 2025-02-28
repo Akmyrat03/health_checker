@@ -27,7 +27,7 @@ func GetBasicConfig(c *fiber.Ctx) error {
 		})
 	}
 
-	basics, err := basicUseCase.List(c.Context())
+	basic, err := basicUseCase.Get(c.Context())
 	if err != nil {
 		fmt.Printf("ERROR: Failed to get basic config datas: %v", err)
 		return c.Status(fiber.StatusInternalServerError).JSON(entities.Error{
@@ -37,7 +37,7 @@ func GetBasicConfig(c *fiber.Ctx) error {
 		})
 	}
 
-	response := basics
+	response := &basic
 
 	return c.Status(fiber.StatusOK).JSON(response)
 }

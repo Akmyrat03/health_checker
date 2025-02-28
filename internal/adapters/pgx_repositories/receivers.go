@@ -57,8 +57,15 @@ func (r *PgxReceiversRepository) Delete(ctx context.Context, id int) error {
 func (r *PgxReceiversRepository) List(ctx context.Context) ([]entities.Receiver, error) {
 	var receivers []entities.Receiver
 
-	query := `SELECT id, email FROM receivers WHERE 1 = 1`
-
+	query := `
+		SELECT 
+			id, 
+			email 
+		FROM 
+			receivers 
+		WHERE 
+			1 = 1
+		`
 	rows, err := r.DbPool.Query(ctx, query)
 	if err != nil {
 		return nil, err

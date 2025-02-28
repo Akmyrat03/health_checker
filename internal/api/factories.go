@@ -39,3 +39,18 @@ func MakeReceiverUseCase() (*usecases.ReceiversUseCase, error) {
 	receiverUseCase := usecases.NewReceiversUseCase(repo)
 	return receiverUseCase, nil
 }
+
+// func MakeSMTPUseCase() (*usecases.SMTPUseCase, error) {
+// 	pool, err := providers.GetDbPool()
+// 	if err != nil {
+// 		fmt.Printf("ERROR: Failed to get database pool: %v\n", err)
+// 		return nil, err
+// 	}
+// 	repo, err := pgx_repositories.NewSMTPRepository(pool, "config.json")
+// 	if err != nil {
+// 		return nil, err
+// 	}
+
+// 	return usecases.NewSMTPUseCase(repo), nil
+
+// }

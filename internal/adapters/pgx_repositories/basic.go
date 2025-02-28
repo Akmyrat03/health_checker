@@ -18,33 +18,23 @@ func NewPgxBasicRepository(dbPool *pgxpool.Pool) *PgxBasicRepository {
 	return &PgxBasicRepository{DbPool: dbPool}
 }
 
-func (r *PgxBasicRepository) List(ctx context.Context) ([]entities.Basic, error) {
-	var basics []entities.Basic
+func (r *PgxBasicRepository) Get(ctx context.Context) (*entities.Basic, error) {
+	var basic entities.Basic
 
 	query := `
-		SELECT check_interval, timeout, error_interval FROM basic_config WHERE 1 = 1
+		SELECT check_interval, timeout, error_interval FROM basic_config LIMIT 1
 	`
 
-	rows, err := r.DbPool.Query(ctx, query)
+	err := r.DbPool.QueryRow(ctx, query).Scan(
+		&basic.CheckInterval,
+		&basic.Timeout,
+		&basic.NotificationInterval,
+	)
 	if err != nil {
 		return nil, err
 	}
-	defer rows.Close()
 
-	for rows.Next() {
-		var basic entities.Basic
-		err := rows.Scan(
-			&basic.CheckInterval,
-			&basic.Timeout,
-			&basic.ErrorInterval,
-		)
-		if err != nil {
-			return nil, err
-		}
-		basics = append(basics, basic)
-	}
-
-	return basics, nil
+	return &basic, nil
 }
 
 func (r *PgxBasicRepository) Update(ctx context.Context, basic inputs.UpdateBasic) error {

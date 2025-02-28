@@ -1,6 +1,7 @@
 package fiber
 
 import (
+	"checker/internal/adapters/pgx_repositories"
 	rest_v0 "checker/internal/api/rest/v0"
 	"checker/internal/config"
 	"checker/internal/infrastructure/pgx"
@@ -20,9 +21,21 @@ import (
 func RunFiberServer(cfg *config.Config) {
 	var err error
 
-	fmt.Println("Server started on :3000")
-	fmt.Println("Check Interval:", cfg.Basic.Interval)
-	fmt.Println("Timeout:", cfg.Basic.Timeout)
+	pool, err := pgx.PostgresPool()
+	if err != nil {
+		log.Fatalf("Failed to connect to database: %v", err)
+	}
+
+	basicRepo := pgx_repositories.NewPgxBasicRepository(pool)
+	basicConfig, err := basicRepo.Get(context.Background())
+	if err != nil {
+		log.Fatalf("Failed to fetch basic config: %v", err)
+	}
+
+	fmt.Printf("Server started on : %s:%s\n", cfg.App.Host, cfg.App.Port)
+	fmt.Printf("Check Interval: %d seconds\n", basicConfig.CheckInterval)
+	fmt.Printf("Timeout: %d seconds\n", basicConfig.Timeout)
+	fmt.Printf("Notification Interval: %d hours\n", basicConfig.NotificationInterval)
 
 	app := fiber.New(
 		fiber.Config{
