@@ -5,6 +5,7 @@ import (
 	rest_v0 "checker/internal/api/rest/v0"
 	"checker/internal/config"
 	"checker/internal/infrastructure/pgx"
+	"checker/internal/infrastructure/scheduler"
 	"context"
 	"fmt"
 	"log"
@@ -27,6 +28,8 @@ func RunFiberServer(cfg *config.Config) {
 	}
 
 	basicRepo := pgx_repositories.NewPgxBasicRepository(pool)
+	serverRepo := pgx_repositories.NewPgxRepository(pool)
+
 	basicConfig, err := basicRepo.Get(context.Background())
 	if err != nil {
 		log.Fatalf("Failed to fetch basic config: %v", err)
@@ -36,6 +39,14 @@ func RunFiberServer(cfg *config.Config) {
 	fmt.Printf("Check Interval: %d seconds\n", basicConfig.CheckInterval)
 	fmt.Printf("Timeout: %d seconds\n", basicConfig.Timeout)
 	fmt.Printf("Notification Interval: %d hours\n", basicConfig.NotificationInterval)
+
+	scheduler := scheduler.Content{
+		WorkerCount: 2, // Define worker count
+		ServerRepo:  serverRepo,
+		BasicRepo:   basicRepo,
+	}
+
+	go scheduler.TimeScheduler(context.Background())
 
 	app := fiber.New(
 		fiber.Config{

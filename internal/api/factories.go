@@ -3,7 +3,9 @@ package api
 import (
 	"checker/internal/adapters/pgx_repositories"
 	"checker/internal/api/providers"
+	"checker/internal/config"
 	"checker/internal/domain/app/usecases"
+	"checker/internal/infrastructure/email"
 	"fmt"
 )
 
@@ -35,22 +37,14 @@ func MakeReceiverUseCase() (*usecases.ReceiversUseCase, error) {
 		fmt.Printf("ERROR: Failed to get database pool: %v\n", err)
 		return nil, err
 	}
+
+	cfg, err := config.LoadConfig("config.json")
+	if err != nil {
+		fmt.Printf("ERROR: Failed to load config: %v\n", err)
+	}
+
+	smtpService := email.NewSMTPService(cfg.SMTP)
 	repo := pgx_repositories.NewPgxReceiversRepository(pool)
-	receiverUseCase := usecases.NewReceiversUseCase(repo)
+	receiverUseCase := usecases.NewReceiversUseCase(repo, smtpService)
 	return receiverUseCase, nil
 }
-
-// func MakeSMTPUseCase() (*usecases.SMTPUseCase, error) {
-// 	pool, err := providers.GetDbPool()
-// 	if err != nil {
-// 		fmt.Printf("ERROR: Failed to get database pool: %v\n", err)
-// 		return nil, err
-// 	}
-// 	repo, err := pgx_repositories.NewSMTPRepository(pool, "config.json")
-// 	if err != nil {
-// 		return nil, err
-// 	}
-
-// 	return usecases.NewSMTPUseCase(repo), nil
-
-// }

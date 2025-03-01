@@ -1,7 +1,8 @@
-package smtp
+package scheduler
 
 import (
 	"checker/internal/domain/app/repositories"
+	"checker/internal/domain/app/usecases"
 	"checker/internal/domain/entities"
 	"context"
 	"fmt"
@@ -12,15 +13,15 @@ import (
 )
 
 type Content struct {
-	WorkerCount int
-	ServerRepo  repositories.Server
-	BasicRepo   repositories.Basic
-	SMTPRepo    repositories.SMTP
+	WorkerCount     int
+	ServerRepo      repositories.Server
+	BasicRepo       repositories.Basic
+	ReceiverUseCase *usecases.ReceiversUseCase
 }
 
 func (c *Content) Worker(ctx context.Context, jobs <-chan entities.Server, results chan<- string) error {
 	for server := range jobs {
-		err := CheckServer(ctx, server, c.BasicRepo, c.SMTPRepo)
+		err := CheckServer(ctx, server, c.BasicRepo, c.ReceiverUseCase)
 		if err != nil {
 			results <- fmt.Sprintf("ERROR: [%s] %s", server.Url, err)
 		} else {
@@ -68,7 +69,7 @@ func (c *Content) TimeScheduler(ctx context.Context) {
 
 	basic, err := c.BasicRepo.Get(ctx)
 	if err != nil {
-		fmt.Errorf("failed to get basic config: %v", err)
+		fmt.Printf("Failed to get basic config: %v", err)
 		return
 	}
 
