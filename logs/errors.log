@@ -317,3 +317,96 @@
 2025/02/28 16:21:26 ERROR: Server - Mekanly Group (https://mekanly.com.tm) is unreachable or returned status 500
 2025/02/28 16:21:31 ERROR: Server - Arassachylyk (http://199.40.7.55:8000/api/v1/health) is unreachable or returned status 500
 2025/02/28 16:21:36 ERROR: Server - Mekanly Group (https://mekanly.com.tm) is unreachable or returned status 500
+2025/03/02 14:12:56 ERROR: Server - Bad Server (https://bad-server.com) is unreachable or returned status 500
+2025/03/02 14:17:20 ERROR: Server - Bad Server (https://bad-server.com) is unreachable or returned status 500
+2025/03/02 14:17:25 ERROR: Server - Github (https://github.com) is unreachable or returned status 500
+2025/03/02 14:17:30 Server - Github (https://github.com) is back online
+2025/03/02 14:19:30 ERROR: Server - Bad Server (https://bad-server.com) is unreachable or returned status 500
+2025/03/02 14:22:11 ERROR: Server - Bad Server (https://bad-server.com) is unreachable or returned status 500
+2025/03/02 14:24:20 ERROR: Server - Bad Server (https://bad-server.com) is unreachable or returned status 500
+2025/03/02 14:26:20 ERROR: Server - Bad Server (https://bad-server.com) is unreachable or returned status 500
+2025/03/02 14:28:21 ERROR: Server - Bad Server (https://bad-server.com) is unreachable or returned status 500
+2025/03/02 14:30:31 ERROR: Server - Bad Server (https://bad-server.com) is unreachable or returned status 500
+2025/03/02 14:32:40 ERROR: Server - Bad Server (https://bad-server.com) is unreachable or returned status 500
+2025/03/02 14:34:50 ERROR: Server - Bad Server (https://bad-server.com) is unreachable or returned status 500
+2025/03/02 14:37:00 ERROR: Server - Bad Server (https://bad-server.com) is unreachable or returned status 500
+2025/03/02 14:39:16 ERROR: Server - Bad Server (https://bad-server.com) is unreachable or returned status 500
+2025/03/02 14:41:16 ERROR: Server - Bad Server (https://bad-server.com) is unreachable or returned status 500
+2025/03/02 14:43:26 ERROR: Server - Bad Server (https://bad-server.com) is unreachable or returned status 500
+2025/03/02 14:45:36 ERROR: Server - Bad Server (https://bad-server.com) is unreachable or returned status 500
+2025/03/02 14:47:46 ERROR: Server - Bad Server (https://bad-server.com) is unreachable or returned status 500
+2025/03/02 14:49:56 ERROR: Server - Bad Server (https://bad-server.com) is unreachable or returned status 500
+2025/03/02 14:52:06 ERROR: Server - Bad Server (https://bad-server.com) is unreachable or returned status 500
+2025/03/02 14:54:16 ERROR: Server - Bad Server (https://bad-server.com) is unreachable or returned status 500
+2025/03/02 14:56:00 ERROR: Server - Bad Server (https://bad-server.com) is unreachable or returned status 500
+2025/03/02 14:58:13 ERROR: Server - Bad Server (https://bad-server.com) is unreachable or returned status 500
+2025/03/02 15:00:23 ERROR: Server - Bad Server (https://bad-server.com) is unreachable or returned status 500
+2025/03/02 15:03:00 ERROR: Server - Bad Server (https://bad-server.com) is unreachable or returned status 500
+2025/03/02 15:05:10 ERROR: Server - Bad Server (https://bad-server.com) is unreachable or returned status 500
+2025/03/02 15:06:28 ERROR: Server - Bad Server (https://bad-server.com) is unreachable or returned status 500
+2025/03/02 15:08:38 ERROR: Server - Bad Server (https://bad-server.com) is unreachable or returned status 500
+2025/03/02 15:10:38 ERROR: Server - Bad Server (https://bad-server.com) is unreachable or returned status 500
+2025/03/02 15:11:58 ERROR: Server - Bad Server (https://bad-server.com) is unreachable or returned status 500
+2025/03/02 15:14:08 ERROR: Server - Bad Server (https://bad-server.com) is unreachable or returned status 500
+2025/03/02 15:16:08 ERROR: Server - Bad Server (https://bad-server.com) is unreachable or returned status 500
+2025/03/02 15:18:18 ERROR: Server - Bad Server (https://bad-server.com) is unreachable or returned status 500
+2025/03/02 15:20:28 ERROR: Server - Bad Server (https://bad-server.com) is unreachable or returned status 500
+2025/03/02 15:22:38 ERROR: Server - Bad Server (https://bad-server.com) is unreachable or returned status 500
+2025/03/02 15:24:48 ERROR: Server - Bad Server (https://bad-server.com) is unreachable or returned status 500
+2025/03/02 15:26:58 ERROR: Server - Bad Server (https://bad-server.com) is unreachable or returned status 500
+2025/03/02 15:28:58 ERROR: Server - Bad Server (https://bad-server.com) is unreachable or returned status 500
+2025/03/02 15:30:58 ERROR: Server - Bad Server (https://bad-server.com) is unreachable or returned status 500
+2025/03/02 15:33:08 ERROR: Server - Bad Server (https://bad-server.com) is unreachable or returned status 500
+2025/03/02 15:35:18 ERROR: Server - Bad Server (https://bad-server.com) is unreachable or returned status 500
+2025/03/02 15:37:18 ERROR: Server - Bad Server (https://bad-server.com) is unreachable or returned status 500
+2025/03/03 12:32:41 ERROR: Server - Mekanly Group (https://mekanly.com.tm) is unreachable or returned status 500
+2025/03/03 12:32:41 ERROR: Server - Github (https://github.com) is unreachable or returned status 500
+2025/03/03 12:32:41 ERROR: Server - Bad Server (https://bad-server.com) is unreachable or returned status 500
+2025/03/03 12:36:42 Server - Mekanly Group (https://mekanly.com.tm) is back online
+2025/03/03 12:36:42 Server - Github (https://github.com) is back online
+2025/03/03 12:37:41 ERROR: Server - Bad Server (https://bad-server.com) is unreachable or returned status 500
+2025/03/03 12:42:41 ERROR: Server - Bad Server (https://bad-server.com) is unreachable or returned status 500
+2025/03/03 12:43:58 ERROR: Server - Github (https://github.com) is unreachable or returned status 500
+2025/03/03 12:43:58 ERROR: Server - Bad Server (https://bad-server.com) is unreachable or returned status 500
+2025/03/03 12:44:43 Server - Github (https://github.com) is back online
+2025/03/03 12:47:01 ERROR: Server - Github (https://github.com) is unreachable or returned status 500
+2025/03/03 12:47:01 ERROR: Server - Bad Server (https://bad-server.com) is unreachable or returned status 500
+2025/03/03 12:47:31 Server - Github (https://github.com) is back online
+2025/03/03 12:52:16 ERROR: Server - Bad Server (https://bad-server.com) is unreachable or returned status 500
+2025/03/03 12:58:30 ERROR: Server - Github (https://github.com) is unreachable or returned status 500
+2025/03/03 12:58:30 ERROR: Server - Mekanly Group (https://mekanly.com.tm) is unreachable or returned status 500
+2025/03/03 14:38:02 ERROR: Server - Bad Server (https://bad-server.com) is unreachable or returned status 500
+2025/03/03 14:40:47 ERROR: Server - Mekanly Group (https://mekanly.com.tm) is unreachable or returned status 500
+2025/03/03 14:40:47 ERROR: Server - Github (https://github.com) is unreachable or returned status 500
+2025/03/03 16:11:02 Server - Mekanly Group (https://mekanly.com.tm) is back online
+2025/03/03 16:11:03 Server - Github (https://github.com) is back online
+2025/03/03 16:11:31 ERROR: Server - Bad Server (https://bad-server.com) is unreachable or returned status 500
+2025/03/03 16:12:04 ERROR: Server - Github (https://github.com) is unreachable or returned status 500
+2025/03/03 16:20:16 ERROR: Server - Bad Server (https://bad-server.com) is unreachable or returned status 500
+2025/03/03 16:25:31 ERROR: Server - Bad Server (https://bad-server.com) is unreachable or returned status 500
+2025/03/03 16:30:46 ERROR: Server - Bad Server (https://bad-server.com) is unreachable or returned status 500
+2025/03/03 16:30:49 ERROR: Server - Github (https://github.com) is unreachable or returned status 500
+2025/03/03 16:31:01 Server - Github (https://github.com) is back online
+2025/03/03 16:48:22 ERROR: Server - Bad Server (https://bad-server.com) is unreachable or returned status 500
+2025/03/03 16:52:10 ERROR: Server - Mekanly Group (https://mekanly.com.tm) is unreachable or returned status 500
+2025/03/03 16:52:10 ERROR: Server - Github (https://github.com) is unreachable or returned status 500
+2025/03/03 16:52:22 Server - Mekanly Group (https://mekanly.com.tm) is back online
+2025/03/03 16:52:22 Server - Github (https://github.com) is back online
+2025/03/03 16:52:55 ERROR: Server - Github (https://github.com) is unreachable or returned status 500
+2025/03/03 16:53:08 Server - Github (https://github.com) is back online
+2025/03/03 16:53:37 ERROR: Server - Bad Server (https://bad-server.com) is unreachable or returned status 500
+2025/03/03 16:53:40 ERROR: Server - Github (https://github.com) is unreachable or returned status 500
+2025/03/03 16:53:52 Server - Github (https://github.com) is back online
+2025/03/03 17:20:37 ERROR: Server - Bad Server (https://bad-server.com) is unreachable or returned status 500
+2025/03/03 17:23:52 ERROR: Server - Bad Server (https://bad-server.com) is unreachable or returned status 500
+2025/03/03 17:23:55 ERROR: Server - Github (https://github.com) is unreachable or returned status 500
+2025/03/03 17:24:07 Server - Github (https://github.com) is back online
+2025/03/03 17:25:21 ERROR: Server - Bad Server (https://bad-server.com) is unreachable or returned status 500
+2025/03/03 17:30:36 ERROR: Server - Bad Server (https://bad-server.com) is unreachable or returned status 500
+2025/03/03 17:46:08 ERROR: Server - Bad Server (https://bad-server.com) is unreachable or returned status 500
+2025/03/03 17:47:10 ERROR: Server - Bad Server (https://bad-server.com) is unreachable or returned status 500
+2025/03/03 17:51:12 ERROR: Server - Github (https://github.com) is unreachable or returned status 500
+2025/03/03 17:51:24 Server - Github (https://github.com) is back online
+2025/03/03 17:52:24 ERROR: Server - Bad Server (https://bad-server.com) is unreachable or returned status 500
+2025/03/03 17:57:45 ERROR: Server - Bad Server (https://bad-server.com) is unreachable or returned status 500
+2025/03/03 18:03:00 ERROR: Server - Bad Server (https://bad-server.com) is unreachable or returned status 500

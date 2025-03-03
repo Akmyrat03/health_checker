@@ -2,3 +2,4 @@ CREATE TABLE IF NOT EXISTS receivers (
     id SERIAL PRIMARY KEY,
     email VARCHAR(255) NOT NULL
 );
+

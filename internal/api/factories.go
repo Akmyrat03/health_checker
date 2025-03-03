@@ -30,7 +30,6 @@ func MakeBasicUseCase() (*usecases.BasicUseCase, error) {
 	basicUseCase := usecases.NewBasicUseCase(repo)
 	return basicUseCase, nil
 }
-
 func MakeReceiverUseCase() (*usecases.ReceiversUseCase, error) {
 	pool, err := providers.GetDbPool()
 	if err != nil {
@@ -41,10 +40,19 @@ func MakeReceiverUseCase() (*usecases.ReceiversUseCase, error) {
 	cfg, err := config.LoadConfig("config.json")
 	if err != nil {
 		fmt.Printf("ERROR: Failed to load config: %v\n", err)
+		return nil, err // ADD RETURN HERE!
 	}
 
 	smtpService := email.NewSMTPService(cfg.SMTP)
 	repo := pgx_repositories.NewPgxReceiversRepository(pool)
+
 	receiverUseCase := usecases.NewReceiversUseCase(repo, smtpService)
+
+	if receiverUseCase == nil {
+		fmt.Println("MakeReceiverUseCase is returning nil!")
+	} else {
+		fmt.Printf("MakeReceiverUseCase created: %+v\n", receiverUseCase)
+	}
+
 	return receiverUseCase, nil
 }
