@@ -19,3 +19,29 @@ The Health Checker service is designed to periodically check the health of multi
 git clone <url>
 cd health_checker
 ```
+
+### Install Swag CLI (for Swagger Documentation)
+```bash
+go install github.com/swaggo/swag/cmd/swag@latest
+export PATH=$PATH:$(go env GOPATH)/bin
+```
+
+### After the project is up and running, execute SQL commands
+```bash
+make db-migrations-up
+```
+## Usage
+
+### Accessing the API
+Once the container is running, access the API via http://localhost:{env.APP_PORT}.
+
+### Swagger UI
+RestAPI provides Swagger UI for testing API endpoints.
+
+Visit: http://{env.HOST}:{env.APP_PORT}/swagger/index.html
+
+## Final Notes
+
+We hope you find this helpful.
+
+Thank you for using our service! 🚀
