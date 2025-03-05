@@ -49,11 +49,5 @@ func MakeReceiverUseCase() (*usecases.ReceiversUseCase, error) {
 
 	receiverUseCase := usecases.NewReceiversUseCase(repo, smtpService)
 
-	if receiverUseCase == nil {
-		fmt.Println("MakeReceiverUseCase is returning nil!")
-	} else {
-		fmt.Printf("MakeReceiverUseCase created: %+v\n", receiverUseCase)
-	}
-
 	return receiverUseCase, nil
 }

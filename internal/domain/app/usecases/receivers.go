@@ -15,18 +15,7 @@ type ReceiversUseCase struct {
 }
 
 func NewReceiversUseCase(receiverRepository repositories.Receivers, smtpService services.SMTP) *ReceiversUseCase {
-	if receiverRepository == nil {
-		fmt.Println("Error: receiverRepository is nil")
-	}
-
-	if smtpService == nil {
-		fmt.Println("Error: smtpService is nil")
-	}
-
-	receiverUseCase := &ReceiversUseCase{receiversRepository: receiverRepository, smtpService: smtpService}
-	fmt.Printf("NewReceiverUseCase created: %+v\n", receiverUseCase)
-
-	return receiverUseCase
+	return &ReceiversUseCase{receiversRepository: receiverRepository, smtpService: smtpService}
 }
 
 func (receiverUseCase *ReceiversUseCase) Create(ctx context.Context, receiver inputs.CreateReceiver) (int, error) {
@@ -57,27 +46,12 @@ func (receiverUseCase *ReceiversUseCase) List(ctx context.Context) ([]entities.R
 }
 
 func (receiverUseCase *ReceiversUseCase) SendEmailToReceiver(ctx context.Context, message string) error {
-	fmt.Printf("receiverUseCase instance: %+v\n", receiverUseCase)
-
-	if receiverUseCase == nil {
-		var err error
-		fmt.Printf("ReceiverUseCase is nil: %v", err)
-		return fmt.Errorf("ReceiverUseCase is nil")
-	}
-
-	if receiverUseCase.smtpService == nil {
-		fmt.Println("SMTPService is nil")
-		return fmt.Errorf("SMTPService is nil")
-	}
-
 	receivers, err := receiverUseCase.receiversRepository.List(ctx)
 	if err != nil {
-		fmt.Println("failed to retrieve receivers")
 		return fmt.Errorf("failed to retrieve receivers: %v", err)
 	}
 
 	if len(receivers) == 0 {
-		fmt.Println("no receivers found")
 		return fmt.Errorf("no receivers found")
 	}
 

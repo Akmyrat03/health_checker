@@ -2,6 +2,7 @@ package fiber
 
 import (
 	"checker/internal/adapters/pgx_repositories"
+	"checker/internal/api"
 	rest_v0 "checker/internal/api/rest/v0"
 	"checker/internal/config"
 	"checker/internal/infrastructure/pgx"
@@ -40,10 +41,17 @@ func RunFiberServer(cfg *config.Config) {
 	fmt.Printf("Timeout: %d seconds\n", basicConfig.Timeout)
 	fmt.Printf("Notification Interval: %d hours\n", basicConfig.NotificationInterval)
 
+	receiverUseCase, err := api.MakeReceiverUseCase()
+	if err != nil {
+		fmt.Printf("[fiber.go]: api.MakeReceiverUseCase : %v", err)
+		return
+	}
+
 	scheduler := scheduler.Content{
-		WorkerCount: 2, // Define worker count
-		ServerRepo:  serverRepo,
-		BasicRepo:   basicRepo,
+		WorkerCount:     2, // Define worker count
+		ServerRepo:      serverRepo,
+		BasicRepo:       basicRepo,
+		ReceiverUseCase: receiverUseCase,
 	}
 
 	go scheduler.TimeScheduler(context.Background())

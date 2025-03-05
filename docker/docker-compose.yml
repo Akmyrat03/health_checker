@@ -1,7 +1,24 @@
 version: '3.8'
 
 services:
-  health-checker:
+  postgres:
+    image: postgres:14
+    environment: 
+     POSTGRES_DB: checker
+     POSTGRES_USER: postgres
+     POSTGRES_PASSWORD: postgres
+    health-checker:
+      test: ["CMD-SHELL", "pg_isready -d checker -U postgres" ]
+      interval: 10
+      timeout: 5
+      retries: 5
+    ports:
+      - "5432:5432"
+    networks:
+      - app-network
+networks:
+  app-network:
+    driver: bridge
     build: .
     ports:
       - "8080:8080"

@@ -11,9 +11,7 @@ import (
 // @version 1.0
 // @description API for managing servers
 // @schemas http, https
-// @securityDefinitions.apikey BearerAuth
 // @in header
-// @name authorization
 func main() {
 	cfg, err := config.LoadConfig("config.json")
 	if err != nil {
