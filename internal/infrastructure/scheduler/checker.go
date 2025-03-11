@@ -28,7 +28,7 @@ func CheckServer(ctx context.Context, server entities.Server, basicRepo reposito
 	}
 
 	timeout := time.Duration(basicConfig.Timeout) * time.Second
-	notificationInterval := time.Duration(basicConfig.NotificationInterval) * time.Minute
+	notificationInterval := time.Duration(basicConfig.NotificationInterval) * time.Hour
 
 	client := &http.Client{
 		Timeout: timeout,

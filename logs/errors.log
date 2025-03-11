@@ -445,3 +445,6 @@
 2025/03/05 11:29:35 ERROR: Server - Mekanly Group (https://mekanly.com.tm) is unreachable or returned status 500
 2025/03/05 11:29:50 Server - Mekanly Group (https://mekanly.com.tm) is back online
 2025/03/05 11:30:20 Server - Github (https://github.com) is back online
+2025/03/10 19:18:21 ERROR: Server - User Management Service (http://95.85.125.16:18000/public/user-management/health) is unreachable or returned status 500
+2025/03/10 19:18:21 ERROR: Server - Content Communication Service (http://95.85.125.16:18000/public/cc/health) is unreachable or returned status 500
+2025/03/10 19:28:06 ERROR: Server - bad-server (server.com) is unreachable or returned status 500

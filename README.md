@@ -26,6 +26,11 @@ go install github.com/swaggo/swag/cmd/swag@latest
 export PATH=$PATH:$(go env GOPATH)/bin
 ```
 
+### Run in attached mode to view the logs
+```bash
+make docker-compose-up
+```
+
 ### After the project is up and running, execute SQL commands
 ```bash
 make db-migrations-up
@@ -43,5 +48,7 @@ Visit: http://{env.HOST}:{env.APP_PORT}/swagger/index.html
 ## Final Notes
 
 We hope you find this helpful.
+
+docker build -t health_checker -f docker/Dockerfile .
 
 Thank you for using our service! 🚀
