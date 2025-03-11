@@ -38,17 +38,13 @@ make pg-migrations-up
 ## Usage
 
 ### Accessing the API
-Once the container is running, access the API via http://localhost:{env.APP_PORT}.
+Once the container is running, access the API via http://localhost:${APP_PORT}.
 
 ### Swagger UI
 RestAPI provides Swagger UI for testing API endpoints.
 
-Visit: http://{env.HOST}:{env.APP_PORT}/swagger/index.html
+Visit: http://${HOST}:${APP_PORT}/swagger/index.html
 
 ## Final Notes
 
-We hope you find this helpful.
-
-docker build -t health_checker -f docker/Dockerfile .
-
-Thank you for using our service! 🚀
+We hope you find this helpful. Thank you for using our service! 🚀
