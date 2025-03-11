@@ -33,7 +33,7 @@ make docker-compose-up
 
 ### After the project is up and running, execute SQL commands
 ```bash
-make db-migrations-up
+make pg-migrations-up
 ```
 ## Usage
 
