@@ -1,63 +1,66 @@
 package config
 
 import (
-	"encoding/json"
-	"fmt"
-	"os"
+	"log"
+	"sync"
+
+	"github.com/ilyakaznacheev/cleanenv"
+)
+
+var (
+	cfg  Config
+	once sync.Once
 )
 
 type Config struct {
-	SMTP     SMTP       `json:"smtp_config"`
-	App      App        `json:"app"`
-	Postgres PostgresDB `json:"postgres"`
-	Cors     Cors       `json:"cors"`
-	JWT      JWT        `json:"jwt"`
+	SMTP     SMTP       `env:"SMTP_CONFIG"`
+	App      App        `env:"APP"`
+	Postgres PostgresDB `env:"POSTGRES"`
+	Cors     Cors       `env:"CORS"`
+	JWT      JWT        `env:"JWT"`
 }
 
 type PostgresDB struct {
-	Host     string `json:"host"`
-	Port     string `json:"port"`
-	User     string `json:"user"`
-	Password string `json:"password"`
-	DBName   string `json:"dbname"`
-	SslMode  string `json:"sslmode"`
+	Host     string `env:"POSTGRES_HOST"`
+	Port     string `env:"POSTGRES_PORT" env-required:"true"`
+	User     string `env:"POSTGRES_USER" env-required:"true"`
+	Password string `env:"POSTGRES_PASSWORD" env-required:"true"`
+	DBName   string `env:"POSTGRES_DB" env-required:"true"`
+	SslMode  string `env:"POSTGRES_SSLMODE" env-required:"true"`
 }
 
 type SMTP struct {
-	SMTPServer    string `json:"smtp_server"`
-	SMTPPort      int    `json:"smtp_port"`
-	SMTPEmail     string `json:"smtp_email"`
-	SMTPPass      string `json:"smtp_pass"`
-	SubjectPrefix string `json:"subject_prefix"`
+	SMTPServer    string `env:"SMTP_SERVER" env-required:"true"`
+	SMTPPort      int    `env:"SMTP_PORT" env-required:"true"`
+	SMTPEmail     string `env:"SMTP_EMAIL" env-required:"true"`
+	SMTPPass      string `env:"SMTP_PASS" env-required:"true"`
+	SubjectPrefix string `env:"SMTP_SUBJECT_PREFIX" env-required:"true"`
 }
 
 type App struct {
-	Host     string `json:"app_host"`
-	Port     string `json:"app_port"`
-	EndPoint string `json:"app_endpoint"`
+	Host     string `env:"APP_HOST" env-required:"true"`
+	Port     string `env:"APP_PORT" env-required:"true"`
+	EndPoint string `env:"APP_ENDPOINT" env-required:"true"`
 }
 
 type Cors struct {
-	Origins     string `json:"cors_origins"`
-	Credentials bool   `json:"cors_credentials"`
+	Origins     string `env:"CORS_ORIGINS" env-required:"true"`
+	Credentials bool   `env:"CORS_CREDENTIALS" env-required:"true"`
 }
 
 type JWT struct {
-	JwtSecretKey string `json:"jwt_secret_key"`
+	JwtSecretKey string `env:"JWT_SECRET_KEY" env-required:"true"`
 }
 
-func LoadConfig(filename string) (*Config, error) {
-	file, err := os.Open(filename)
-	if err != nil {
-		return nil, fmt.Errorf("error opening config file: %v", err)
-	}
-	defer file.Close()
+func LoadConfig() *Config {
+	once.Do(func() {
+		err := cleanenv.ReadConfig(".env", &cfg)
+		if err != nil {
+			log.Fatalf("Error loading configuration: %v", err)
+		}
 
-	var config Config
-	decoder := json.NewDecoder(file)
-	if err := decoder.Decode(&config); err != nil {
-		return nil, fmt.Errorf("error while decoding config file: %v", err)
-	}
+		log.Println("Configuration loaded successfully")
+	})
 
-	return &config, nil
+	return &cfg
 }

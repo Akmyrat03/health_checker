@@ -4,7 +4,6 @@ import (
 	"checker/internal/config"
 	"context"
 	"fmt"
-	"log"
 	"sync"
 
 	"github.com/jackc/pgx/v5/pgxpool"
@@ -17,10 +16,7 @@ var (
 
 func PostgresPool() (*pgxpool.Pool, error) {
 	once.Do(func() {
-		cfg, err := config.LoadConfig("config.json")
-		if err != nil {
-			log.Fatalf("Failed to load config file: %v", err)
-		}
+		cfg := config.LoadConfig()
 		dbUrl := fmt.Sprintf("postgres://%s:%s@%s:%s/%s?sslmode=%s",
 			cfg.Postgres.User,
 			cfg.Postgres.Password,

@@ -38,11 +38,11 @@ func MakeReceiverUseCase() (*usecases.ReceiversUseCase, error) {
 		return nil, err
 	}
 
-	cfg, err := config.LoadConfig("config.json")
-	if err != nil {
-		fmt.Printf("ERROR: Failed to load config: %v\n", err)
-		return nil, err
-	}
+	cfg := config.LoadConfig()
+	// if err != nil {
+	// 	fmt.Printf("ERROR: Failed to load config: %v\n", err)
+	// 	return nil, err
+	// }
 
 	smtpService := email.NewSMTPService(cfg.SMTP)
 	repo := pgx_repositories.NewPgxReceiversRepository(pool)

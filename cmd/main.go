@@ -4,7 +4,6 @@ import (
 	_ "checker/docs"
 	"checker/internal/config"
 	"checker/internal/infrastructure/fiber"
-	"log"
 )
 
 // @title Health Checker API
@@ -13,10 +12,6 @@ import (
 // @schemas http, https
 // @in header
 func main() {
-	cfg, err := config.LoadConfig("config.json")
-	if err != nil {
-		log.Fatalf("[config.LoadConfig]: failed to load config file: %v", err)
-	}
-
+	cfg := config.LoadConfig()
 	fiber.RunFiberServer(cfg)
 }

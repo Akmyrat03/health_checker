@@ -1,13 +1,4 @@
 definitions:
-  controllers.HealthStatus:
-    properties:
-      server_name:
-        type: string
-      server_url:
-        type: string
-      status:
-        type: string
-    type: object
   entities.Error:
     properties:
       loc:
@@ -186,26 +177,4 @@ paths:
       summary: Create Server
       tags:
       - servers
-  /api/v0/servers/health:
-    get:
-      description: Fetches the health status of all servers
-      produces:
-      - application/json
-      responses:
-        "200":
-          description: OK
-          schema:
-            additionalProperties:
-              items:
-                $ref: '#/definitions/controllers.HealthStatus'
-              type: array
-            type: object
-      summary: Show the health status of servers
-      tags:
-      - servers
-securityDefinitions:
-  BearerAuth:
-    in: header
-    name: authorization
-    type: apiKey
 swagger: "2.0"

@@ -1,20 +1,43 @@
-root_dir:= $(shell pwd)
-config_file := ${root_dir}/config.json
-docker_compose_conf_file:= $(root_dir)/docker/docker-compose.yaml
-dockerfile:= $(root_dir)/docker/Dockerfile
-image_name:= health_checker
+root_dir := $(shell pwd)
+docker_compose_conf_file := ${root_dir}/docker/docker-compose.yaml
+docker_compose_local_conf_file := ${root_dir}/docker/docker-compose.local.yaml
 
-docker-build:
-	docker build -t $(image_name) -f $(dockerfile) .
+ifneq ("$(wildcard .env)","")
+	include .env
+endif
+
+docker-compose-local-up:
+	PROJECT_ROOT=${root_dir} swag init -g cmd/main.go
+	PROJECT_ROOT=${root_dir} docker compose -f ${docker_compose_local_conf_file} \
+		-p $(PROJECT_NAME) --env-file ${root_dir}/.env up \
+		--no-deps --build --remove-orphans --pull never
 
 docker-compose-up:
-	docker-compose -f $(docker_compose_conf_file) up -d
+	PROJECT_ROOT=${root_dir} docker compose -f ${docker_compose_conf_file} \
+		-p $(PROJECT_NAME) --env-file ${root_dir}/.env up \
+		--no-deps --build --remove-orphans --pull never
 
-docker-compose-down:
-	docker-compose -f $(docker_compose_conf_file) down
+docker-compose-up-detached:
+	PROJECT_ROOT=${root_dir} docker compose -f ${docker_compose_conf_file} \
+		-p $(PROJECT_NAME) --env-file ${root_dir}/.env up \
+		-d --no-deps --build --remove-orphans --pull never
 
-pg-migrations-up:
-	migrate -path internal/infrastructure/pg_migrations -database "postgres://postgres:postgres@localhost:5432/checker?sslmode=disable" up
+docker-compose-stop:
+	PROJECT_ROOT=${root_dir} docker compose -f ${docker_compose_conf_file} \
+		-p $(PROJECT_NAME) --env-file ${root_dir}/.env stop
 
-pg-migrations-down:
-	migrate -path internal/infrastructure/pg_migrations -database "postgres://postgres:postgres@localhost:5432/checker?sslmode=disable" down
+docker-compose-down-volumes:
+	PROJECT_ROOT=${root_dir} docker compose -f ${docker_compose_conf_file} \
+		--env-file ${root_dir}/.env down \
+		--volumes --remove-orphans
+
+db-migrations-up:
+	docker exec -it $(PROJECT_NAME)-database \
+		psql -U postgres -d $(POSTGRES_DB) -f /database/upgrade.sql
+
+db-migrations-down:
+	docker exec -it $(PROJECT_NAME)-database \
+		psql -U postgres -d $(POSTGRES_DB) -f /database/downgrade.sql
+
+deploy:
+	$(MAKE) docker-compose-up-detached

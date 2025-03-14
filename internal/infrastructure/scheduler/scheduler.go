@@ -21,6 +21,7 @@ type Content struct {
 
 func (c *Content) Worker(ctx context.Context, jobs <-chan entities.Server, results chan<- string) error {
 	for server := range jobs {
+		// log.Printf("Worker processing server: %s (%s)", server.Name, server.Url)
 		err := CheckServer(ctx, server, c.BasicRepo, c.ReceiverUseCase)
 		if err != nil {
 			results <- fmt.Sprintf("ERROR: [%s] %s", server.Url, err)
@@ -50,6 +51,7 @@ func (c *Content) StartWorkers(ctx context.Context) error {
 
 	go func() {
 		for _, server := range servers {
+			// log.Printf("Dispatching server check job for: %s (%s)", server.Name, server.Url)
 			jobs <- server
 		}
 		close(jobs)
@@ -61,12 +63,14 @@ func (c *Content) StartWorkers(ctx context.Context) error {
 
 	close(results)
 
+	// for result := range results {
+	// 	log.Println("Result:", result)
+	// }
+
 	return nil
 }
 
 func (c *Content) TimeScheduler(ctx context.Context) {
-	log.Println("Scheduler running...")
-
 	basic, err := c.BasicRepo.Get(ctx)
 	if err != nil {
 		fmt.Printf("Failed to get basic config: %v", err)

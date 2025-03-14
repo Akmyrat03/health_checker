@@ -20,10 +20,26 @@ git clone <url>
 cd health_checker
 ```
 
+### Adjust the Environment
+```bash
+cp -n .env.example .env
+vi .env
+```
+
 ### Install Swag CLI (for Swagger Documentation)
 ```bash
 go install github.com/swaggo/swag/cmd/swag@latest
 export PATH=$PATH:$(go env GOPATH)/bin
+```
+
+### Run in the Local
+```bash
+make docker-compose-local-up
+```
+
+### Run in the Background
+```bash
+make docker-compose-up-detached
 ```
 
 ### Run in attached mode to view the logs
@@ -33,8 +49,9 @@ make docker-compose-up
 
 ### After the project is up and running, execute SQL commands
 ```bash
-make pg-migrations-up
+make db-migrations-up
 ```
+
 ## Usage
 
 ### Accessing the API

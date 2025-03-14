@@ -217,49 +217,9 @@ const docTemplate = `{
                     }
                 }
             }
-        },
-        "/api/v0/servers/health": {
-            "get": {
-                "description": "Fetches the health status of all servers",
-                "produces": [
-                    "application/json"
-                ],
-                "tags": [
-                    "servers"
-                ],
-                "summary": "Show the health status of servers",
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "schema": {
-                            "type": "object",
-                            "additionalProperties": {
-                                "type": "array",
-                                "items": {
-                                    "$ref": "#/definitions/controllers.HealthStatus"
-                                }
-                            }
-                        }
-                    }
-                }
-            }
         }
     },
     "definitions": {
-        "controllers.HealthStatus": {
-            "type": "object",
-            "properties": {
-                "server_name": {
-                    "type": "string"
-                },
-                "server_url": {
-                    "type": "string"
-                },
-                "status": {
-                    "type": "string"
-                }
-            }
-        },
         "entities.Error": {
             "type": "object",
             "properties": {
@@ -317,13 +277,6 @@ const docTemplate = `{
                     "type": "integer"
                 }
             }
-        }
-    },
-    "securityDefinitions": {
-        "BearerAuth": {
-            "type": "apiKey",
-            "name": "authorization",
-            "in": "header"
         }
     }
 }`
