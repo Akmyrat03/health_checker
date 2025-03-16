@@ -5,6 +5,4 @@ CREATE TABLE IF NOT EXISTS receivers (
 
 INSERT INTO receivers (email)
 VALUES 
-('ovez.hojagulyyev@gmail.com'),
-('sabyrowvepa@gmail.com'),
-('hudaynazarowymam@gmail.com');
+('akmobile.tm@gmail.com');

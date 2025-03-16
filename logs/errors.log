@@ -42,3 +42,32 @@
 2025/03/14 22:31:49 Server - Content Communication Service (http://95.85.125.16:18000/public/cc/health) is back online
 2025/03/14 22:33:19 ERROR: Server - User Management Service (http://95.85.125.16:18000/public/user-management/health) is unreachable or returned status 500
 2025/03/14 22:33:37 ERROR: Server - Content Communication Service (http://95.85.125.16:18000/public/cc/health) is unreachable or returned status 500
+2025/03/15 19:57:14 ERROR: Server - bad-server (https://server.com) is unreachable or returned status 500
+2025/03/15 19:58:34 ERROR: Server - Content Communication Service (http://95.85.125.16:18000/public/cc/health) is unreachable or returned status 500
+2025/03/15 19:58:34 ERROR: Server - User Management Service (http://95.85.125.16:18000/public/user-management/health) is unreachable or returned status 500
+2025/03/15 20:02:23 Server - Content Communication Service (http://95.85.125.16:18000/public/cc/health) is back online
+2025/03/15 20:02:29 Server - User Management Service (http://95.85.125.16:18000/public/user-management/health) is back online
+2025/03/15 21:59:39 ERROR: Server - User Management Service (http://95.85.125.16:18000/public/user-management/health) is unreachable or returned status 500
+2025/03/15 21:59:44 ERROR: Server - Content Communication Service (http://95.85.125.16:18000/public/cc/health) is unreachable or returned status 500
+2025/03/15 21:59:48 Server - User Management Service (http://95.85.125.16:18000/public/user-management/health) is back online
+2025/03/15 21:59:51 Server - Content Communication Service (http://95.85.125.16:18000/public/cc/health) is back online
+2025/03/16 00:17:34 ERROR: Server - Content Communication Service (http://95.85.125.16:18000/public/cc/health) is unreachable or returned status 500
+2025/03/16 00:17:37 ERROR: Server - User Management Service (http://95.85.125.16:18000/public/user-management/health) is unreachable or returned status 500
+2025/03/16 00:17:40 Server - User Management Service (http://95.85.125.16:18000/public/user-management/health) is back online
+2025/03/16 00:17:43 Server - Content Communication Service (http://95.85.125.16:18000/public/cc/health) is back online
+2025/03/16 02:20:35 ERROR: Server - User Management Service (http://95.85.125.16:18000/public/user-management/health) is unreachable or returned status 500
+2025/03/16 04:55:03 ERROR: Server - Content Communication Service (http://95.85.125.16:18000/public/cc/health) is unreachable or returned status 500
+2025/03/16 04:55:05 Server - User Management Service (http://95.85.125.16:18000/public/user-management/health) is back online
+2025/03/16 04:55:22 Server - Content Communication Service (http://95.85.125.16:18000/public/cc/health) is back online
+2025/03/16 04:55:23 ERROR: Server - Content Communication Service (http://95.85.125.16:18000/public/cc/health) is unreachable or returned status 500
+2025/03/16 04:55:26 ERROR: Server - User Management Service (http://95.85.125.16:18000/public/user-management/health) is unreachable or returned status 500
+2025/03/16 04:55:29 Server - User Management Service (http://95.85.125.16:18000/public/user-management/health) is back online
+2025/03/16 07:08:25 Server - Content Communication Service (http://95.85.125.16:18000/public/cc/health) is back online
+2025/03/16 07:08:28 ERROR: Server - User Management Service (http://95.85.125.16:18000/public/user-management/health) is unreachable or returned status 500
+2025/03/16 07:08:44 Server - User Management Service (http://95.85.125.16:18000/public/user-management/health) is back online
+2025/03/16 09:03:17 ERROR: Server - bad-server (https://server.com) is unreachable or returned status 500
+2025/03/16 09:24:01 ERROR: Server - Content Communication Service (http://95.85.125.16:18000/public/cc/health) is unreachable or returned status 500
+2025/03/16 09:24:04 ERROR: Server - User Management Service (http://95.85.125.16:18000/public/user-management/health) is unreachable or returned status 500
+2025/03/16 09:24:07 Server - User Management Service (http://95.85.125.16:18000/public/user-management/health) is back online
+2025/03/16 09:24:10 Server - Content Communication Service (http://95.85.125.16:18000/public/cc/health) is back online
+2025/03/16 09:29:31 ERROR: Server - bad-server (https://server.com) is unreachable or returned status 500

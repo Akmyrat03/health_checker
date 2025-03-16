@@ -17,7 +17,7 @@ The Health Checker service is designed to periodically check the health of multi
 ## Installation
 ```bash
 git clone <url>
-cd health_checker
+cd health-checker
 ```
 
 ### Adjust the Environment
