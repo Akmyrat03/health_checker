@@ -1,18 +1,17 @@
 # Health Checker
 
-The Health Checker service is designed to periodically check the health of multiple servers by sending HTTP GET requests and sending notifications if the servers are down or if they recover. The service is implemented in Go and can be easily run using Docker.
+The Health Checker service periodically checks server health via HTTP GET requests and notifies users of downtime or recovery. It is built with Go and can be run using Docker.
 
 ## Features
-- Periodically checks the health of servers via HTTP GET requests.
-- Logs errors when a server is unreachable or returns a non-200 HTTP status.
-- Sends email notifications on server errors and recoveries.
-- Configurable intervals and timeout for health checks.
-- Exposes a /status endpoint to check the status of all monitored servers.
+- Periodic server health checks.
+- Logs errors for unreachable servers or non-204 responses.
+- Email notifications for failures and recoveries.
+- Configurable check intervals and timeouts.
 
 ## Prerequisites
 
-- **Docker** Make sure Docker installed. Refer to [Docker Installation Guide](https://docs.docker.com/get-docker) if needed.
-- **Golang** (optional for local testing): Requires Go 1.23
+- **Docker**: Install [Docker](https://docs.docker.com/get-docker).
+- **Golang** (optional for local testing): Requires Go 1.23.
 
 ## Installation
 ```bash
@@ -60,7 +59,7 @@ Once the container is running, access the API via http://localhost:${APP_PORT}.
 ### Swagger UI
 RestAPI provides Swagger UI for testing API endpoints.
 
-Visit: http://${HOST}:${APP_PORT}/swagger/index.html
+Visit: http://{env.HOST}:{env.APP_PORT}/swagger/index.html
 
 ## Final Notes
 

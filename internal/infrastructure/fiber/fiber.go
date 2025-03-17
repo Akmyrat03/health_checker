@@ -33,13 +33,13 @@ func RunFiberServer(cfg *config.Config) {
 
 	basicConfig, err := basicRepo.Get(context.Background())
 	if err != nil {
-		log.Fatalf("Failed to fetch basic config: %v", err)
+		log.Fatalf("Failed to fetch basic config, skipped details: %v", err)
+	} else {
+		fmt.Printf("Server started on : %s:%s\n", cfg.App.Host, cfg.App.Port)
+		fmt.Printf("Check Interval: %d seconds\n", basicConfig.CheckInterval)
+		fmt.Printf("Timeout: %d seconds\n", basicConfig.Timeout)
+		fmt.Printf("Notification Interval: %d hours\n", basicConfig.NotificationInterval)
 	}
-
-	fmt.Printf("Server started on : %s:%s\n", cfg.App.Host, cfg.App.Port)
-	fmt.Printf("Check Interval: %d seconds\n", basicConfig.CheckInterval)
-	fmt.Printf("Timeout: %d seconds\n", basicConfig.Timeout)
-	fmt.Printf("Notification Interval: %d hours\n", basicConfig.NotificationInterval)
 
 	receiverUseCase, err := api.MakeReceiverUseCase()
 	if err != nil {
