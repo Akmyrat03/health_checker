@@ -4,7 +4,7 @@ The Health Checker service is designed to periodically check the health of multi
 
 ## Features
 - Periodically checks the health of servers via HTTP GET requests.
-- Logs errors when a server is unreachable or returns a non-200 HTTP status.
+- Logs errors when a server is unreachable or returns a non-204 HTTP status.
 - Sends email notifications on server errors and recoveries.
 - Configurable intervals and timeout for health checks.
 - Exposes a /status endpoint to check the status of all monitored servers.
