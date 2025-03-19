@@ -19,7 +19,9 @@
                 "responses": {
                     "200": {
                         "description": "success",
-                        "schema": {}
+                        "schema": {
+                            "$ref": "#/definitions/responses.GetBasicConfig"
+                        }
                     },
                     "500": {
                         "description": "Internal Server Error",
@@ -41,7 +43,7 @@
                 "parameters": [
                     {
                         "description": "Basic Config",
-                        "name": "basic",
+                        "name": "basic_config",
                         "in": "body",
                         "required": true,
                         "schema": {
@@ -54,6 +56,12 @@
                         "description": "OK",
                         "schema": {
                             "type": "string"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/entities.Error"
                         }
                     }
                 }
@@ -68,10 +76,13 @@
                 "tags": [
                     "receivers"
                 ],
-                "summary": "Get All Receivers",
+                "summary": "Get all receivers",
                 "responses": {
                     "200": {
-                        "description": "success"
+                        "description": "success",
+                        "schema": {
+                            "$ref": "#/definitions/responses.GetReceivers"
+                        }
                     },
                     "500": {
                         "description": "Internal Server Error",
@@ -92,8 +103,8 @@
                 "summary": "Create a receiver",
                 "parameters": [
                     {
-                        "description": "Receiver",
-                        "name": "name",
+                        "description": "Receiver Email",
+                        "name": "receiver_email",
                         "in": "body",
                         "required": true,
                         "schema": {
@@ -101,7 +112,20 @@
                         }
                     }
                 ],
-                "responses": {}
+                "responses": {
+                    "200": {
+                        "description": "success",
+                        "schema": {
+                            "$ref": "#/definitions/responses.CreateReceiver"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/entities.Error"
+                        }
+                    }
+                }
             },
             "delete": {
                 "description": "Delete Receiver",
@@ -124,6 +148,12 @@
                 "responses": {
                     "204": {
                         "description": "Success"
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/entities.Error"
+                        }
                     }
                 }
             }
@@ -144,7 +174,10 @@
                         "schema": {
                             "type": "array",
                             "items": {
-                                "$ref": "#/definitions/responses.CreateServer"
+                                "type": "array",
+                                "items": {
+                                    "$ref": "#/definitions/responses.GetServer"
+                                }
                             }
                         }
                     },
@@ -167,8 +200,8 @@
                 "summary": "Create Server",
                 "parameters": [
                     {
-                        "description": "Server Name",
-                        "name": "name",
+                        "description": "Server Details",
+                        "name": "server_details",
                         "in": "body",
                         "required": true,
                         "schema": {
@@ -181,6 +214,12 @@
                         "description": "success",
                         "schema": {
                             "$ref": "#/definitions/responses.CreateServer"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/entities.Error"
                         }
                     }
                 }
@@ -206,6 +245,12 @@
                 "responses": {
                     "204": {
                         "description": "Success"
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/entities.Error"
+                        }
                     }
                 }
             }
@@ -251,13 +296,21 @@
         "requests.UpdateBasic": {
             "type": "object",
             "properties": {
-                "check_interval": {
+                "checkIntervalInSeconds": {
                     "type": "integer"
                 },
-                "notification_interval": {
+                "notificationIntervalInHours": {
                     "type": "integer"
                 },
-                "timeout": {
+                "timeoutInSeconds": {
+                    "type": "integer"
+                }
+            }
+        },
+        "responses.CreateReceiver": {
+            "type": "object",
+            "properties": {
+                "id": {
                     "type": "integer"
                 }
             }
@@ -267,6 +320,45 @@
             "properties": {
                 "id": {
                     "type": "integer"
+                }
+            }
+        },
+        "responses.GetBasicConfig": {
+            "type": "object",
+            "properties": {
+                "checkIntervalInSeconds": {
+                    "type": "integer"
+                },
+                "notificationIntervalInHours": {
+                    "type": "integer"
+                },
+                "timeoutInSeconds": {
+                    "type": "integer"
+                }
+            }
+        },
+        "responses.GetReceivers": {
+            "type": "object",
+            "properties": {
+                "email": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "integer"
+                }
+            }
+        },
+        "responses.GetServer": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "integer"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "url": {
+                    "type": "string"
                 }
             }
         }

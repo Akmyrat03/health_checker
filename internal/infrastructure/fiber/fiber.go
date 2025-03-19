@@ -79,20 +79,17 @@ func RunFiberServer(cfg *config.Config) {
 	app.Get("/swagger/*", swagger.HandlerDefault)
 
 	app.Hooks().OnListen(func(listenData fiber.ListenData) error {
-		_, err = pgx.PostgresPool()
-		if err != nil {
-			return err
+		if pool == nil {
+			return fmt.Errorf("database pool is not initialized")
 		}
 
 		return nil
 	})
 
 	app.Hooks().OnShutdown(func() error {
-		pool, err := pgx.PostgresPool()
-		if err != nil {
-			return err
+		if pool != nil {
+			pool.Close()
 		}
-		pool.Close()
 
 		return nil
 	})
@@ -117,10 +114,10 @@ func RunFiberServer(cfg *config.Config) {
 	)
 	<-quit
 
-	_, cancel := context.WithTimeout(context.Background(), 5*time.Second)
+	ctx, cancel := context.WithTimeout(context.Background(), 5*time.Second)
 	defer cancel()
 
-	if err := app.Shutdown(); err != nil {
+	if err := app.ShutdownWithContext(ctx); err != nil {
 		log.Fatalf("Server forced to shutdown: %v", err)
 	}
 }

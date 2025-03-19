@@ -3,6 +3,7 @@ package controllers
 import (
 	"checker/internal/api"
 	"checker/internal/api/rest/v0/requests"
+	"checker/internal/api/rest/v0/responses"
 	"checker/internal/domain/app/inputs"
 	"checker/internal/domain/entities"
 	"fmt"
@@ -15,15 +16,16 @@ import (
 // @Desciption Get all necessary configs
 // @Tags basic_config
 // @Produce json
-// @Success 200 {object} interface{} "success"
+// @Success 200 {object} responses.GetBasicConfig "success"
 // @Failure 500 {object} entities.Error
 // @Router /api/v0/basic [get]
 func GetBasicConfig(c *fiber.Ctx) error {
 	basicUseCase, err := api.MakeBasicUseCase()
 	if err != nil {
-		return c.Status(fiber.StatusInternalServerError).JSON(fiber.Map{
-			"code":    fiber.StatusInternalServerError,
-			"message": err.Error(),
+		return c.Status(fiber.StatusInternalServerError).JSON(entities.Error{
+			Loc:  []string{"usecase"},
+			Msg:  err.Error(),
+			Type: "processing_error",
 		})
 	}
 
@@ -31,13 +33,17 @@ func GetBasicConfig(c *fiber.Ctx) error {
 	if err != nil {
 		fmt.Printf("ERROR: Failed to get basic config datas: %v", err)
 		return c.Status(fiber.StatusInternalServerError).JSON(entities.Error{
-			Loc:  []string{"basicUseCase", "get"},
-			Msg:  "Failed to get basic config datas",
-			Type: "database error",
+			Loc:  []string{"get"},
+			Msg:  err.Error(),
+			Type: "processing_error",
 		})
 	}
 
-	response := &basic
+	response := responses.GetBasicConfig{
+		CheckInterval:        basic.CheckInterval,
+		Timeout:              basic.Timeout,
+		NotificationInterval: basic.NotificationInterval,
+	}
 
 	return c.Status(fiber.StatusOK).JSON(response)
 }
@@ -47,8 +53,9 @@ func GetBasicConfig(c *fiber.Ctx) error {
 // @Description Update necessary configs: check_interval, timeout and notification interval
 // @Tags basic_config
 // @Produce json
-// @Param basic body requests.UpdateBasic true "Basic Config"
+// @Param basic_config body requests.UpdateBasic true "Basic Config"
 // @Success 200 {object} string
+// @Failure 500 {object} entities.Error
 // @Router /api/v0/basic [put]
 func UpdateBasicConfig(c *fiber.Ctx) error {
 	var basic requests.UpdateBasic
@@ -70,9 +77,10 @@ func UpdateBasicConfig(c *fiber.Ctx) error {
 
 	basicUseCase, err := api.MakeBasicUseCase()
 	if err != nil {
-		return c.Status(fiber.StatusInternalServerError).JSON(fiber.Map{
-			"code":    fiber.StatusInternalServerError,
-			"message": err.Error(),
+		return c.Status(fiber.StatusInternalServerError).JSON(entities.Error{
+			Loc:  []string{"usecase"},
+			Msg:  err.Error(),
+			Type: "processing_error",
 		})
 	}
 

@@ -24,17 +24,47 @@ definitions:
     type: object
   requests.UpdateBasic:
     properties:
-      check_interval:
+      checkIntervalInSeconds:
         type: integer
-      notification_interval:
+      notificationIntervalInHours:
         type: integer
-      timeout:
+      timeoutInSeconds:
+        type: integer
+    type: object
+  responses.CreateReceiver:
+    properties:
+      id:
         type: integer
     type: object
   responses.CreateServer:
     properties:
       id:
         type: integer
+    type: object
+  responses.GetBasicConfig:
+    properties:
+      checkIntervalInSeconds:
+        type: integer
+      notificationIntervalInHours:
+        type: integer
+      timeoutInSeconds:
+        type: integer
+    type: object
+  responses.GetReceivers:
+    properties:
+      email:
+        type: string
+      id:
+        type: integer
+    type: object
+  responses.GetServer:
+    properties:
+      id:
+        type: integer
+      name:
+        type: string
+      url:
+        type: string
     type: object
 info:
   contact: {}
@@ -49,7 +79,8 @@ paths:
       responses:
         "200":
           description: success
-          schema: {}
+          schema:
+            $ref: '#/definitions/responses.GetBasicConfig'
         "500":
           description: Internal Server Error
           schema:
@@ -63,7 +94,7 @@ paths:
       parameters:
       - description: Basic Config
         in: body
-        name: basic
+        name: basic_config
         required: true
         schema:
           $ref: '#/definitions/requests.UpdateBasic'
@@ -74,6 +105,10 @@ paths:
           description: OK
           schema:
             type: string
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/entities.Error'
       summary: Update basic config
       tags:
       - basic_config
@@ -91,6 +126,10 @@ paths:
       responses:
         "204":
           description: Success
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/entities.Error'
       summary: Delete Receiver
       tags:
       - receivers
@@ -101,25 +140,35 @@ paths:
       responses:
         "200":
           description: success
+          schema:
+            $ref: '#/definitions/responses.GetReceivers'
         "500":
           description: Internal Server Error
           schema:
             $ref: '#/definitions/entities.Error'
-      summary: Get All Receivers
+      summary: Get all receivers
       tags:
       - receivers
     post:
       description: Create a receiver
       parameters:
-      - description: Receiver
+      - description: Receiver Email
         in: body
-        name: name
+        name: receiver_email
         required: true
         schema:
           $ref: '#/definitions/requests.CreateReceiver'
       produces:
       - application/json
-      responses: {}
+      responses:
+        "200":
+          description: success
+          schema:
+            $ref: '#/definitions/responses.CreateReceiver'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/entities.Error'
       summary: Create a receiver
       tags:
       - receivers
@@ -137,6 +186,10 @@ paths:
       responses:
         "204":
           description: Success
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/entities.Error'
       summary: Delete Server
       tags:
       - servers
@@ -149,7 +202,9 @@ paths:
           description: OK
           schema:
             items:
-              $ref: '#/definitions/responses.CreateServer'
+              items:
+                $ref: '#/definitions/responses.GetServer'
+              type: array
             type: array
         "500":
           description: Internal Server Error
@@ -161,9 +216,9 @@ paths:
     post:
       description: Create Server
       parameters:
-      - description: Server Name
+      - description: Server Details
         in: body
-        name: name
+        name: server_details
         required: true
         schema:
           $ref: '#/definitions/requests.CreateServer'
@@ -174,6 +229,10 @@ paths:
           description: success
           schema:
             $ref: '#/definitions/responses.CreateServer'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/entities.Error'
       summary: Create Server
       tags:
       - servers

@@ -82,7 +82,7 @@ func (r *PgxRepository) List(ctx context.Context) ([]entities.Server, error) {
 		err := rows.Scan(
 			&server.ID,
 			&server.Name,
-			&server.Url,
+			&server.URL,
 		)
 		if err != nil {
 			return nil, err

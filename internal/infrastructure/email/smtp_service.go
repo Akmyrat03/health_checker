@@ -16,10 +16,11 @@ func NewSMTPService(cfg config.SMTP) *SMTPService {
 	return &SMTPService{smtp: cfg}
 }
 
-func (s *SMTPService) SendEmail(ctx context.Context, message string, receivers []string) error {
+func (s *SMTPService) SendEmail(ctx context.Context, message, subjectMessage string, receivers []string) error {
 	auth := smtp.PlainAuth("", s.smtp.SMTPEmail, s.smtp.SMTPPass, s.smtp.SMTPServer)
 
-	subject := s.smtp.SubjectPrefix + " - Error Notification"
+	subject := subjectMessage
+
 	body := message
 
 	var msg strings.Builder

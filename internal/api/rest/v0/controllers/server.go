@@ -14,19 +14,14 @@ import (
 	"github.com/gofiber/fiber/v2"
 )
 
-type HealthStatus struct {
-	ServerName string `json:"server_name"`
-	ServerURL  string `json:"server_url"`
-	Status     string `json:"status"`
-}
-
 // @CreateServer godoc
 // @Summary Create Server
 // @Description Create Server
 // @Tags servers
 // @Produce json
-// @Param name body requests.CreateServer true "Server Name"
+// @Param server_details body requests.CreateServer true "Server Details"
 // @Success 200 {object} responses.CreateServer "success"
+// @Failure 500 {object} entities.Error
 // @Router /api/v0/servers [post]
 func CreateServer(c *fiber.Ctx) error {
 	var server requests.CreateServer
@@ -42,7 +37,7 @@ func CreateServer(c *fiber.Ctx) error {
 
 	input := inputs.CreateServer{
 		Name: server.Name,
-		Url:  server.Url,
+		Url:  server.URL,
 	}
 
 	serverUseCase, err := api.MakeServerUseCase()
@@ -64,10 +59,10 @@ func CreateServer(c *fiber.Ctx) error {
 	}
 
 	response := responses.CreateServer{
-		Id: id,
+		ID: id,
 	}
 
-	return c.Status(fiber.StatusCreated).JSON(response)
+	return c.Status(fiber.StatusOK).JSON(response)
 }
 
 // DeleteServer godoc
@@ -77,6 +72,7 @@ func CreateServer(c *fiber.Ctx) error {
 // @Produce json
 // @Param id query string true "Server ID"
 // @Success 204 "Success"
+// @Failure 500 {object} entities.Error
 // @Router /api/v0/servers [delete]
 func DeleteServer(c *fiber.Ctx) error {
 	id, err := strconv.Atoi(c.Query("id"))
@@ -122,15 +118,16 @@ func DeleteServer(c *fiber.Ctx) error {
 // @Description Retrieve a list of all servers
 // @Tags servers
 // @Produce json
-// @Success 200 {array} responses.CreateServer
+// @Success 200 {array} []responses.GetServer
 // @Failure 500 {object} entities.Error
 // @Router /api/v0/servers [get]
 func GetServers(c *fiber.Ctx) error {
 	serverUseCase, err := api.MakeServerUseCase()
 	if err != nil {
-		return c.Status(fiber.StatusInternalServerError).JSON(fiber.Map{
-			"code":    fiber.StatusInternalServerError,
-			"message": err.Error(),
+		return c.Status(fiber.StatusInternalServerError).JSON(entities.Error{
+			Loc:  []string{"usecase"},
+			Msg:  err.Error(),
+			Type: "processing_error",
 		})
 	}
 
@@ -138,82 +135,20 @@ func GetServers(c *fiber.Ctx) error {
 	if err != nil {
 		fmt.Printf("ERROR: Failed to list servers: %v\n", err)
 		return c.Status(fiber.StatusInternalServerError).JSON(entities.Error{
-			Loc:  []string{"serverUseCase", "list"},
-			Msg:  "Failed to list servers",
-			Type: "database_error",
+			Loc:  []string{"list"},
+			Msg:  err.Error(),
+			Type: "processing_error",
 		})
 	}
 
-	response := servers
+	var response []responses.GetServer
+	for _, server := range servers {
+		response = append(response, responses.GetServer{
+			ID:   server.ID,
+			Name: server.Name,
+			URL:  server.URL,
+		})
+	}
 
 	return c.Status(fiber.StatusOK).JSON(response)
 }
-
-// func ShowStatus(c *fiber.Ctx) error {
-// 	// Connect to the database
-// 	pool, err := pgx.PostgresPool()
-// 	if err != nil {
-// 		log.Printf("[ShowStatus]: Failed to connect to database: %v\n", err)
-// 		return c.Status(fiber.StatusInternalServerError).JSON(fiber.Map{
-// 			"code":    fiber.StatusInternalServerError,
-// 			"message": "Failed to connect to the database",
-// 		})
-// 	}
-
-// 	// Initialize repositories
-// 	serverRepo := pgx_repositories.NewPgxServerRepository(pool)
-// 	basicRepo := pgx_repositories.NewPgxBasicRepository(pool)
-
-// 	// Get servers from the database
-// 	servers, err := serverRepo.List(c.Context())
-// 	if err != nil {
-// 		log.Printf("[ShowStatus]: Failed to fetch servers: %v\n", err)
-// 		return c.Status(fiber.StatusInternalServerError).JSON(fiber.Map{
-// 			"code":    fiber.StatusInternalServerError,
-// 			"message": "Failed to fetch servers",
-// 		})
-// 	}
-
-// 	// Get basic configuration from the database
-// 	basicConfig, err := basicRepo.Get(c.Context())
-// 	if err != nil {
-// 		log.Printf("[ShowStatus]: Failed to fetch basic config: %v\n", err)
-// 		return c.Status(fiber.StatusInternalServerError).JSON(fiber.Map{
-// 			"code":    fiber.StatusInternalServerError,
-// 			"message": "Failed to fetch basic config",
-// 		})
-// 	}
-
-// 	var wg sync.WaitGroup
-// 	var mu sync.Mutex
-// 	status := []HealthStatus{}
-
-// 	// Check each server concurrently
-// 	for _, server := range servers {
-// 		wg.Add(1)
-// 		go func(server entities.Server) {
-// 			defer wg.Done()
-
-// 			err := usecases.CheckServer(c.Context(), server, basicConfig.Timeout)
-
-// 			serverStatus := "Healthy"
-// 			if err != nil {
-// 				serverStatus = "Unhealthy"
-// 			}
-
-// 			mu.Lock()
-// 			status = append(status, HealthStatus{
-// 				ServerName: server.Name,
-// 				ServerURL:  server.Url,
-// 				Status:     serverStatus,
-// 			})
-// 			mu.Unlock()
-// 		}(server)
-// 	}
-
-// 	wg.Wait()
-
-// 	return c.Status(fiber.StatusOK).JSON(fiber.Map{
-// 		"servers": status,
-// 	})
-// }

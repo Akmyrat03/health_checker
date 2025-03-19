@@ -1,5 +1,11 @@
 package responses
 
 type CreateServer struct {
-	Id int `json:"id"`
+	ID int `json:"id"`
+}
+
+type GetServer struct {
+	ID   int    `json:"id"`
+	Name string `json:"name"`
+	URL  string `json:"url"`
 }

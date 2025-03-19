@@ -13,14 +13,15 @@ import (
 )
 
 const (
-	logFile = "logs/errors.log"
+	logFile              = "logs/errors.log"
+	consecutiveFailCount = 3
 )
 
 var (
-	lastErrorTime  = make(map[string]time.Time)
-	lastNotifyTime = make(map[string]time.Time)
-	isServerDown   = make(map[string]bool)
-	mu             sync.Mutex
+	lastNotifyTime   = make(map[string]time.Time)
+	isServerDown     = make(map[string]bool)
+	consecutiveFails = make(map[string]int)
+	mu               sync.Mutex
 )
 
 func CheckServer(ctx context.Context, server entities.Server, basicRepo repositories.Basic, receiverUseCase *usecases.ReceiversUseCase) error {
@@ -36,16 +37,16 @@ func CheckServer(ctx context.Context, server entities.Server, basicRepo reposito
 		Timeout: timeout,
 	}
 
-	resp, err := client.Get(server.Url)
+	resp, err := client.Get(server.URL)
 	if err != nil {
-		HandleError(ctx, notificationInterval, server, receiverUseCase)
-		return fmt.Errorf("ERROR: Server - %s (%s) is unreachable", server.Name, server.Url)
+		HandleError(ctx, notificationInterval, server, receiverUseCase, 0)
+		return fmt.Errorf("ERROR: Server - %s (%s) is unreachable", server.Name, server.URL)
 	}
 	defer resp.Body.Close()
 
 	if resp.StatusCode != 204 {
-		HandleError(ctx, notificationInterval, server, receiverUseCase)
-		return fmt.Errorf("ERROR: Server - %s (%s) returned status %d", server.Name, server.Url, resp.StatusCode)
+		HandleError(ctx, notificationInterval, server, receiverUseCase, resp.StatusCode)
+		return fmt.Errorf("ERROR: Server - %s (%s) returned status %d", server.Name, server.URL, resp.StatusCode)
 	}
 
 	mu.Lock()
@@ -53,33 +54,57 @@ func CheckServer(ctx context.Context, server entities.Server, basicRepo reposito
 		SendRecoveryNotification(ctx, receiverUseCase, server)
 	}
 	isServerDown[server.Name] = false
-	delete(lastErrorTime, server.Name)
+	consecutiveFails[server.Name] = 0
 	delete(lastNotifyTime, server.Name)
 	mu.Unlock()
 
 	return nil
 }
 
-func HandleError(ctx context.Context, notificationInterval time.Duration, server entities.Server, receiverUseCase *usecases.ReceiversUseCase) {
-	msg := fmt.Sprintf("ERROR: Server - %s (%s) is unreachable or returned status 500", server.Name, server.Url)
-
+func HandleError(ctx context.Context, notificationInterval time.Duration, server entities.Server, receiverUseCase *usecases.ReceiversUseCase, statusCode int) {
 	mu.Lock()
-	if !isServerDown[server.Name] { // First time the server goes down
-		shared.WriteLog(msg, logFile) // Log the first error
-		receiverUseCase.SendEmailToReceiver(ctx, msg)
-		lastErrorTime[server.Name] = time.Now()
-		lastNotifyTime[server.Name] = time.Now()
-		isServerDown[server.Name] = true
-	} else if time.Since(lastNotifyTime[server.Name]) > notificationInterval {
-		shared.WriteLog(msg, logFile)
-		receiverUseCase.SendEmailToReceiver(ctx, msg)
-		lastNotifyTime[server.Name] = time.Now()
+	defer mu.Unlock()
+
+	consecutiveFails[server.Name]++
+
+	if consecutiveFails[server.Name] < consecutiveFailCount {
+		return
 	}
-	mu.Unlock()
+
+	if time.Since(lastNotifyTime[server.Name]) < notificationInterval {
+		return
+	}
+
+	subjectMessage := fmt.Sprintf("%s is failed", server.Name)
+	statusText := fmt.Sprintf("%d", statusCode)
+	if statusCode == 0 {
+		statusText = "Unreachable"
+	}
+
+	msg := fmt.Sprintf(
+		"\U0001F6A8 Service Health Alert \U0001F6A8\n\n"+
+			"Name: %s\n"+
+			"URL: %s\n"+
+			"Status Code: %s\n\n"+
+			"Please check the service for issues.",
+		server.Name, server.URL, statusText,
+	)
+
+	shared.WriteLog(msg, logFile)
+	receiverUseCase.SendEmailToReceiver(ctx, msg, subjectMessage)
+
+	lastNotifyTime[server.Name] = time.Now()
+	isServerDown[server.Name] = true
 }
 
 func SendRecoveryNotification(ctx context.Context, receiverUseCase *usecases.ReceiversUseCase, server entities.Server) {
-	msg := fmt.Sprintf("Server - %s (%s) is back online", server.Name, server.Url)
+	subjectMessage := fmt.Sprintf("%s is back online", server.Name)
+	msg := fmt.Sprintf("\U0001F7E2 Server Recovery Notice \U0001F7E2\n\nServer - %s (%s) is back online.", server.Name, server.URL)
+
 	shared.WriteLog(msg, logFile)
-	receiverUseCase.SendEmailToReceiver(ctx, msg)
+	receiverUseCase.SendEmailToReceiver(ctx, msg, subjectMessage)
+
+	mu.Lock()
+	consecutiveFails[server.Name] = 0
+	mu.Unlock()
 }

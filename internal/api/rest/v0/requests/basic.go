@@ -1,7 +1,7 @@
 package requests
 
 type UpdateBasic struct {
-	CheckInterval        int `json:"check_interval"`
-	Timeout              int `json:"timeout"`
-	NotificationInterval int `json:"notification_interval"`
+	CheckInterval        int `json:"checkIntervalInSeconds"`
+	Timeout              int `json:"timeoutInSeconds"`
+	NotificationInterval int `json:"notificationIntervalInHours"`
 }

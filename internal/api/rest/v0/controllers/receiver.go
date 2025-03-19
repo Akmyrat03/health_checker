@@ -19,8 +19,9 @@ import (
 // @Description Create a receiver
 // @Tags receivers
 // @Produce json
-// @Param name body requests.CreateReceiver true "Receiver"
-// Success 200 {object} responses.CreateReceiver "Success"
+// @Param receiver_email body requests.CreateReceiver true "Receiver Email"
+// @Success 200 {object} responses.CreateReceiver "success"
+// @Failure 500 {object} entities.Error
 // @Router /api/v0/receiver [post]
 func CreateReceiver(c *fiber.Ctx) error {
 	var receiver requests.CreateReceiver
@@ -60,7 +61,7 @@ func CreateReceiver(c *fiber.Ctx) error {
 		ID: id,
 	}
 
-	return c.Status(fiber.StatusCreated).JSON(response)
+	return c.Status(fiber.StatusOK).JSON(response)
 }
 
 // DeleteReceiver godoc
@@ -70,6 +71,7 @@ func CreateReceiver(c *fiber.Ctx) error {
 // @Produce json
 // @Param id query string true "Receiver ID"
 // @Success 204 "Success"
+// @Failure 500 {object} entities.Error
 // @Router /api/v0/receiver [delete]
 func DeleteReceiver(c *fiber.Ctx) error {
 	id, err := strconv.Atoi(c.Query("id"))
@@ -112,19 +114,20 @@ func DeleteReceiver(c *fiber.Ctx) error {
 }
 
 // GetReceivers godoc
-// @Summary Get All Receivers
+// @Summary Get all receivers
 // @Description Retrieve a list of all receivers
 // @Tags receivers
 // @Produce json
-// @Success 200 "success"
+// @Success 200 {object} responses.GetReceivers "success"
 // @Failure 500 {object} entities.Error
 // @Router /api/v0/receiver [get]
 func GetReceivers(c *fiber.Ctx) error {
 	receiverUseCase, err := api.MakeReceiverUseCase()
 	if err != nil {
-		return c.Status(fiber.StatusInternalServerError).JSON(fiber.Map{
-			"code":    fiber.StatusInternalServerError,
-			"message": err.Error(),
+		return c.Status(fiber.StatusInternalServerError).JSON(entities.Error{
+			Loc:  []string{"server"},
+			Msg:  err.Error(),
+			Type: "processing_error",
 		})
 	}
 
@@ -138,7 +141,13 @@ func GetReceivers(c *fiber.Ctx) error {
 		})
 	}
 
-	response := receivers
+	var response []responses.GetReceivers
+	for _, receiver := range receivers {
+		response = append(response, responses.GetReceivers{
+			ID:    receiver.ID,
+			Email: receiver.Email,
+		})
+	}
 
 	return c.Status(fiber.StatusOK).JSON(response)
 }

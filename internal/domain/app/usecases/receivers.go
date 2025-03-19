@@ -45,7 +45,7 @@ func (receiverUseCase *ReceiversUseCase) List(ctx context.Context) ([]entities.R
 	return receivers, nil
 }
 
-func (receiverUseCase *ReceiversUseCase) SendEmailToReceiver(ctx context.Context, message string) error {
+func (receiverUseCase *ReceiversUseCase) SendEmailToReceiver(ctx context.Context, message, subjectMessage string) error {
 	receivers, err := receiverUseCase.receiversRepository.List(ctx)
 	if err != nil {
 		return fmt.Errorf("failed to retrieve receivers: %v", err)
@@ -60,7 +60,7 @@ func (receiverUseCase *ReceiversUseCase) SendEmailToReceiver(ctx context.Context
 		emails = append(emails, receiver.Email)
 	}
 
-	err = receiverUseCase.smtpService.SendEmail(ctx, message, emails)
+	err = receiverUseCase.smtpService.SendEmail(ctx, message, subjectMessage, emails)
 	if err != nil {
 		return fmt.Errorf("failed to send email: %v", err)
 	}
