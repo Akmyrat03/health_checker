@@ -45,18 +45,36 @@ func (receiverUseCase *ReceiversUseCase) List(ctx context.Context) ([]entities.R
 	return receivers, nil
 }
 
-func (receiverUseCase *ReceiversUseCase) SendEmailToReceiver(ctx context.Context, message, subjectMessage string) error {
-	receivers, err := receiverUseCase.receiversRepository.List(ctx)
+func (receiverUseCase *ReceiversUseCase) MuteStatus(ctx context.Context, email string, mute bool) error {
+	err := receiverUseCase.receiversRepository.MuteStatus(ctx, email, mute)
 	if err != nil {
-		return fmt.Errorf("failed to retrieve receivers: %v", err)
+		return err
 	}
 
-	if len(receivers) == 0 {
-		return fmt.Errorf("no receivers found")
+	return nil
+}
+
+func (receiverUseCase *ReceiversUseCase) GetAllUnmuted(ctx context.Context) ([]entities.Receiver, error) {
+	unmutedReceivers, err := receiverUseCase.receiversRepository.GetAllUnmuted(ctx)
+	if err != nil {
+		return nil, err
+	}
+
+	return unmutedReceivers, nil
+}
+
+func (receiverUseCase *ReceiversUseCase) SendEmailToReceiver(ctx context.Context, message, subjectMessage string) error {
+	unmuted, err := receiverUseCase.receiversRepository.GetAllUnmuted(ctx)
+	if err != nil {
+		return err
+	}
+
+	if len(unmuted) == 0 {
+		return fmt.Errorf("no unmuted receivers found")
 	}
 
 	var emails []string
-	for _, receiver := range receivers {
+	for _, receiver := range unmuted {
 		emails = append(emails, receiver.Email)
 	}
 

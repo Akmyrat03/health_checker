@@ -56,6 +56,8 @@ definitions:
         type: string
       id:
         type: integer
+      muted:
+        type: boolean
     type: object
   responses.GetServer:
     properties:
@@ -170,6 +172,60 @@ paths:
           schema:
             $ref: '#/definitions/entities.Error'
       summary: Create a receiver
+      tags:
+      - receivers
+  /api/v0/receiver/mute:
+    get:
+      description: Mute a receiver
+      parameters:
+      - description: Receiver Email
+        in: query
+        name: email
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Receiver muted successfully
+          schema:
+            type: string
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/entities.Error'
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/entities.Error'
+      summary: Mute Receiver
+      tags:
+      - receivers
+  /api/v0/receiver/unmute:
+    get:
+      description: Unmute a receiver
+      parameters:
+      - description: Receiver Email
+        in: query
+        name: email
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Receiver unmuted successfully
+          schema:
+            type: string
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/entities.Error'
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/entities.Error'
+      summary: Unmute Receiver
       tags:
       - receivers
   /api/v0/servers:

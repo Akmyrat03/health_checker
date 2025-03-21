@@ -10,12 +10,10 @@ func GroupControllers(app *fiber.Router) {
 	v0 := (*app).Group("/v0")
 
 	protected := v0.Group("")
-	// protected.Use(middleware.AuthMiddleware())
 
 	protected.Post("/servers", controllers.CreateServer)
 	protected.Delete("/servers", controllers.DeleteServer)
 	protected.Get("/servers", controllers.GetServers)
-	// protected.Get("/servers/health", controllers.ShowStatus)
 
 	protected.Get("/basic", controllers.GetBasicConfig)
 	protected.Put("/basic", controllers.UpdateBasicConfig)
@@ -23,4 +21,6 @@ func GroupControllers(app *fiber.Router) {
 	protected.Post("/receiver", controllers.CreateReceiver)
 	protected.Delete("/receiver", controllers.DeleteReceiver)
 	protected.Get("/receiver", controllers.GetReceivers)
+	protected.Get("/receiver/mute", controllers.MuteReceiver)
+	protected.Get("/receiver/unmute", controllers.UnmuteReceiver)
 }

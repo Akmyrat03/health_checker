@@ -7,4 +7,5 @@ type CreateReceiver struct {
 type GetReceivers struct {
 	ID    int    `json:"id"`
 	Email string `json:"email"`
+	Muted bool   `json:"muted"`
 }

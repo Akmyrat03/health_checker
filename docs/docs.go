@@ -166,6 +166,88 @@ const docTemplate = `{
                 }
             }
         },
+        "/api/v0/receiver/mute": {
+            "get": {
+                "description": "Mute a receiver",
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "receivers"
+                ],
+                "summary": "Mute Receiver",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Receiver Email",
+                        "name": "email",
+                        "in": "query",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Receiver muted successfully",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/entities.Error"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal server error",
+                        "schema": {
+                            "$ref": "#/definitions/entities.Error"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v0/receiver/unmute": {
+            "get": {
+                "description": "Unmute a receiver",
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "receivers"
+                ],
+                "summary": "Unmute Receiver",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Receiver Email",
+                        "name": "email",
+                        "in": "query",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Receiver unmuted successfully",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/entities.Error"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal server error",
+                        "schema": {
+                            "$ref": "#/definitions/entities.Error"
+                        }
+                    }
+                }
+            }
+        },
         "/api/v0/servers": {
             "get": {
                 "description": "Retrieve a list of all servers",
@@ -353,6 +435,9 @@ const docTemplate = `{
                 },
                 "id": {
                     "type": "integer"
+                },
+                "muted": {
+                    "type": "boolean"
                 }
             }
         },

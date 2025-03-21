@@ -60,12 +60,11 @@ func (r *PgxReceiversRepository) List(ctx context.Context) ([]entities.Receiver,
 	query := `
 		SELECT 
 			id, 
-			email 
+			email,
+			muted
 		FROM 
-			receivers 
-		WHERE 
-			1 = 1
-		`
+			receivers;`
+
 	rows, err := r.DbPool.Query(ctx, query)
 	if err != nil {
 		return nil, err
@@ -77,12 +76,60 @@ func (r *PgxReceiversRepository) List(ctx context.Context) ([]entities.Receiver,
 		err := rows.Scan(
 			&receiver.ID,
 			&receiver.Email,
+			&receiver.Muted,
 		)
 		if err != nil {
 			return nil, err
 		}
+
 		receivers = append(receivers, receiver)
 	}
 
 	return receivers, nil
+}
+
+func (r *PgxReceiversRepository) GetAllUnmuted(ctx context.Context) ([]entities.Receiver, error) {
+	var unmutedReceivers []entities.Receiver
+
+	query := `
+		SELECT 
+			id, 
+			email,
+			muted
+		FROM 
+			receivers
+		WHERE
+			muted = $1;`
+
+	rows, err := r.DbPool.Query(ctx, query, false)
+	if err != nil {
+		return nil, err
+	}
+	defer rows.Close()
+
+	for rows.Next() {
+		var receiver entities.Receiver
+		err := rows.Scan(
+			&receiver.ID,
+			&receiver.Email,
+			&receiver.Muted,
+		)
+		if err != nil {
+			return nil, err
+		}
+
+		unmutedReceivers = append(unmutedReceivers, receiver)
+	}
+
+	return unmutedReceivers, nil
+}
+
+func (r *PgxReceiversRepository) MuteStatus(ctx context.Context, email string, mute bool) error {
+	query := `UPDATE receivers SET muted = $1 WHERE email = $2;`
+	_, err := r.DbPool.Exec(ctx, query, mute, email)
+	if err != nil {
+		return err
+	}
+
+	return nil
 }

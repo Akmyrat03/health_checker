@@ -142,12 +142,103 @@ func GetReceivers(c *fiber.Ctx) error {
 	}
 
 	var response []responses.GetReceivers
-	for _, receiver := range receivers {
+	for _, muted := range receivers {
 		response = append(response, responses.GetReceivers{
-			ID:    receiver.ID,
-			Email: receiver.Email,
+			ID:    muted.ID,
+			Email: muted.Email,
+			Muted: muted.Muted,
 		})
 	}
 
 	return c.Status(fiber.StatusOK).JSON(response)
+}
+
+// MuteReceiver godoc
+// @Summary Mute Receiver
+// @Description Mute a receiver
+// @Tags receivers
+// @Produce json
+// @Param email query string true "Receiver Email"
+// @Success 200 {object} string "Receiver muted successfully"
+// @Failure 400 {object} entities.Error "Bad Request"
+// @Failure 500 {object} entities.Error "Internal server error"
+// @Router /api/v0/receiver/mute [get]
+func MuteReceiver(c *fiber.Ctx) error {
+	email := c.Query("email")
+	if email == "" {
+		return c.Status(fiber.StatusBadRequest).JSON(entities.Error{
+			Loc:  []string{"body", "email"},
+			Msg:  "Email is required",
+			Type: "validation_error",
+		})
+	}
+
+	fmt.Println("MuteReceiver called with email:", email)
+
+	receiverUseCase, err := api.MakeReceiverUseCase()
+	if err != nil {
+		return c.Status(fiber.StatusInternalServerError).JSON(entities.Error{
+			Loc:  []string{"server"},
+			Msg:  err.Error(),
+			Type: "processing_error",
+		})
+	}
+
+	err = receiverUseCase.MuteStatus(c.Context(), email, true)
+	if err != nil {
+		fmt.Printf("ERROR: Failed to mute receiver: %v\n", err)
+		return c.Status(fiber.StatusInternalServerError).JSON(entities.Error{
+			Loc:  []string{"mute"},
+			Msg:  err.Error(),
+			Type: "database_error",
+		})
+	}
+
+	return c.Status(fiber.StatusOK).JSON(fiber.Map{
+		"message": "Receiver muted successfully",
+	})
+}
+
+// UnmuteReceiver godoc
+// @Summary Unmute Receiver
+// @Description Unmute a receiver
+// @Tags receivers
+// @Produce json
+// @Param email query string true "Receiver Email"
+// @Success 200 {object} string "Receiver unmuted successfully"
+// @Failure 400 {object} entities.Error "Bad Request"
+// @Failure 500 {object} entities.Error "Internal server error"
+// @Router /api/v0/receiver/unmute [get]
+func UnmuteReceiver(c *fiber.Ctx) error {
+	email := c.Query("email")
+	if email == "" {
+		return c.Status(fiber.StatusBadRequest).JSON(entities.Error{
+			Loc:  []string{"body", "email"},
+			Msg:  "Email is required",
+			Type: "validation_error",
+		})
+	}
+
+	receiverUseCase, err := api.MakeReceiverUseCase()
+	if err != nil {
+		return c.Status(fiber.StatusInternalServerError).JSON(entities.Error{
+			Loc:  []string{"server"},
+			Msg:  err.Error(),
+			Type: "processing_error",
+		})
+	}
+
+	err = receiverUseCase.MuteStatus(c.Context(), email, false)
+	if err != nil {
+		fmt.Printf("ERROR: Failed to unmute receiver: %v\n", err)
+		return c.Status(fiber.StatusInternalServerError).JSON(entities.Error{
+			Loc:  []string{"unmute"},
+			Msg:  err.Error(),
+			Type: "database_error",
+		})
+	}
+
+	return c.Status(fiber.StatusOK).JSON(fiber.Map{
+		"message": "Receiver unmuted successfully",
+	})
 }
